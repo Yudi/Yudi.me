@@ -44,11 +44,11 @@
 					{#if item.children}
 						<li tabindex="0">
 							<a class="justify-between">
-								{item.name}
+								{$t(item.name)}
 							</a>
 							<ul class="p-2">
 								{#each item.children as child}
-									<li><a href={child.url || undefined}>{child.name}</a></li>
+									<li><a href={child.url || undefined}>{$t(child.name)}</a></li>
 								{/each}
 							</ul>
 						</li>
