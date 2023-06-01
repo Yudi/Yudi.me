@@ -20,7 +20,7 @@
 	{/if}
 </svelte:head>
 
-<div class="min-h-screen">
+<div class="mx-auto min-h-screen max-w-5xl">
 	<Meta />
 	<Navbar />
 	<slot />
