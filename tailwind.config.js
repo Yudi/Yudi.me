@@ -13,7 +13,7 @@ export default {
 		themes: [
 			{
 				theme: {
-					...require('daisyui/src/colors/themes')['[data-theme=light]'],
+					...require('daisyui/src/theming/themes')['[data-theme=light]'],
 					primary: '#3880ff',
 					secondary: '#3dc2ff',
 					accent: '#5260ff',
@@ -24,7 +24,7 @@ export default {
 					error: '#eb445a'
 				},
 				darkTheme: {
-					...require('daisyui/src/colors/themes')['[data-theme=dark]'],
+					...require('daisyui/src/theming/themes')['[data-theme=dark]'],
 					primary: '#3880ff',
 					secondary: '#3dc2ff',
 					accent: '#5260ff',
