@@ -1,0 +1,13 @@
+{
+    "navbar": {
+        "digitalGarden": "Jardim digital",
+        "digitalGarden.personal": "Pessoal",
+        "digitalGarden.studying": "Estudos"
+    },
+    "error": {
+        "notFound": "Página não encontrada",
+        "notFound.description": "A página que você está procurando não existe.",
+        "else.unknown": "Erro desconhecido",
+        "else.unknown.description": "Ocorreu um erro desconhecido."
+    }
+}
