@@ -10,7 +10,8 @@
 	class="duration-250 card-component grid rounded-2xl transition-all hover:scale-105"
 	style="--size: {size}"
 >
-	<img src={image} alt="" class="col-start-1 row-start-1 rounded-2xl object-cover" />
+	<img src={image} alt="" class="col-start-1 row-start-1 h-full w-full rounded-2xl object-cover" />
+
 	<div
 		class="gradient col-start-1 row-start-1 flex items-end justify-center rounded-2xl p-4 text-white"
 	>
