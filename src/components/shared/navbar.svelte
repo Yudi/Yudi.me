@@ -4,6 +4,10 @@
 
 	const items: Items[] = [
 		{
+			name: 'common.navbar.projects',
+			url: '/projects'
+		},
+		{
 			name: 'common.navbar.digitalGarden',
 			children: [
 				{

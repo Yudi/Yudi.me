@@ -1,5 +1,6 @@
 {
     "navbar": {
+        "projects": "Projects",
         "digitalGarden": "Digital garden",
         "digitalGarden.personal": "Personal",
         "digitalGarden.studying": "Studying"
