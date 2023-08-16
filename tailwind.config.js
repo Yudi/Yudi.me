@@ -5,7 +5,7 @@ export default {
 		fontFamily: {
 			sans: ['Inter', 'system-ui', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
 			serif: ['Merriweather', 'ui-serif', 'Georgia', '"Times New Roman"', 'serif'],
-			mono: ['JetBrains Mono', 'ui-monospace', '"Courier New"', 'monospace']
+			mono: ['"Source Code Pro"', '"JetBrains Mono"', 'ui-monospace', '"Courier New"', 'monospace']
 		}
 	},
 	plugins: [require('daisyui')],
