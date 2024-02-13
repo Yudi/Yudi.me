@@ -33,32 +33,44 @@
 	<div class="navbar-start">
 		<!-- Mobile -->
 		<div class="dropdown">
-			<label tabindex="0" class="btn-ghost btn lg:hidden">
+			<label tabindex="0" class="btn btn-ghost lg:hidden">
 				<Menu class="h-5 w-5" />
 			</label>
 			<ul
 				tabindex="0"
-				class="dropdown-content menu rounded-box menu-sm mt-3 w-52 bg-base-100 p-2 shadow"
+				class="menu dropdown-content menu-sm mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
 			>
 				{#each items as item}
 					{#if item.children}
 						<li tabindex="0">
-							<a class="justify-between">
+							<span class="h-12 justify-between pt-3.5">
 								{$t(item.name)}
-							</a>
+							</span>
 							<ul class="p-2">
 								{#each item.children as child}
-									<li><a href={child.url || undefined}>{$t(child.name)}</a></li>
+									<li>
+										<a class="h-12 pt-3.5" href={child.url || undefined}>{$t(child.name)}</a>
+									</li>
 								{/each}
 							</ul>
 						</li>
 					{:else}
-						<li><a href={item.url || undefined}>{item.name}</a></li>
+						<li><a class="h-12 pt-3.5" href={item.url || undefined}>{$t(item.name)}</a></li>
 					{/if}
 				{/each}
 			</ul>
 		</div>
-		<a class="btn-ghost btn text-xl normal-case" href="/">Yudi</a>
+		<a class="btn btn-ghost text-xl normal-case" href="/">Yudi</a>
+	</div>
+
+	<div class="navbar-end lg:hidden">
+		<li tabindex="0" class="dropdown dropdown-end">
+			<label tabindex="0" class="btn btn-ghost"> <Languages class="h-5 w-5" /></label>
+			<ul class="menu dropdown-content rounded-box bg-base-100 p-2 shadow">
+				<li><button class="h-12 pt-3.5" on:click={() => locale.set('en')}>English</button></li>
+				<li><button class="h-12 pt-3.5" on:click={() => locale.set('pt')}>Português</button></li>
+			</ul>
+		</li>
 	</div>
 
 	<!-- Desktop -->
@@ -71,7 +83,7 @@
 							{$t(item.name)}
 							<ChevronDown class="h-5 w-5" />
 						</label>
-						<ul class="dropdown-content menu rounded-box bg-base-100 p-2 shadow">
+						<ul class="menu dropdown-content rounded-box bg-base-100 p-2 shadow">
 							{#each item.children as child}
 								<li><a href={child.url || undefined}>{$t(child.name)}</a></li>
 							{/each}
@@ -81,11 +93,11 @@
 					<li><a href={item.url || undefined}>{$t(item.name)}</a></li>
 				{/if}
 			{/each}
-			<li tabindex="0" class="dropdown-end dropdown">
+			<li tabindex="0" class="dropdown dropdown-end">
 				<label tabindex="0"> <Languages class="h-5 w-5" /></label>
-				<ul class="dropdown-content menu rounded-box bg-base-100 p-2 shadow">
-					<li><a on:click={() => locale.set('en')}>English</a></li>
-					<li><a on:click={() => locale.set('pt')}>Português</a></li>
+				<ul class="menu dropdown-content rounded-box bg-base-100 p-2 shadow">
+					<li><button on:click={() => locale.set('en')}>English</button></li>
+					<li><button on:click={() => locale.set('pt')}>Português</button></li>
 				</ul>
 			</li>
 		</ul>
