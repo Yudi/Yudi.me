@@ -4,12 +4,12 @@
 
 	const items: Items[] = [
 		{
+			name: 'common.navbar.reviews',
+			url: 'https://reviews.yudi.com.br'
+		},
+		{
 			name: 'common.navbar.digitalGarden',
 			children: [
-				{
-					name: 'common.navbar.digitalGarden.personal',
-					url: 'https://personal.yudi.me'
-				},
 				{
 					name: 'common.navbar.digitalGarden.studying',
 					url: 'https://studying.yudi.me'
