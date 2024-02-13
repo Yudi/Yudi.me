@@ -6,7 +6,6 @@
     },
     "error": {
         "notFound": "Not found",
-        "notFound.description": "The requested page does not exist.",
         "else.unknown": "Unknown error",
         "else.unknown.description": "An unknown error has occurred."
     }
