@@ -1,0 +1,197 @@
+---
+layout: ../../../layouts/MarkdownPostLayout.astro
+title: Como instalar o Windows 11
+date: 2024-06-16
+---
+import KeyboardLayoutDecisionTree from '../../../components/resources/install-windows-11/KeyboardLayoutDecisionTree.svelte'
+
+Instalar o Windows é uma tarefa simples, mas que requer atenção em alguns detalhes.    
+Neste artigo, você aprenderá a instalar o Windows 11.
+
+## 1. Pré-instalação
+
+### 1.1. Requisitos mínimos
+
+Antes de começar a instalação, é importante verificar se o computador atende aos [requisitos mínimos para instalar o Windows 11](https://www.microsoft.com/windows/windows-11-specifications).
+
+Caso seu computador não possua mais de 4 GB de RAM, TPM ou o Secure Boot, use o [Rufus](https://rufus.ie/) ao invés do _Media Creation Tool_ no próximo passo.
+
+### 1.2. Pendrive bootável
+
+Para esta etapa você precisará de:
+- Um computador com Windows;
+- Um pendrive com pelo menos 8 GB de espaço;
+- O [Media Creation Tool](https://www.microsoft.com/software-download/windows11) (Criar mídia de instalação do Windows 11).
+
+> Os dados do pendrive serão apagados. Faça um backup antes de continuar.
+
+**Passos:**
+1. Conecte o pendrive no computador.
+1. Abra o Media Creation Tool.
+1. Aceite os termos de licença.
+1. Caso deseje alterar o idioma, desmarque a opção "Usar as opções recomendadas para este computador" e selecione o idioma desejado.
+1. Selecione "Unidade flash USB".
+1. Selecione o pendrive.
+
+Se seu pendrive está sendo preparado em outro computador diferente do que receberá a instalação, você pode continuar a seguir os passos de instalação.
+
+### 1.3. Configuração da UEFI (BIOS)
+
+> Se a máquina que você deseja instalar o Windows 11 já possui o Windows 11 instalado, pule esta seção e vá para a [instalação](#2-instalação).
+
+É necessário conferir se determinadas configurações estão habilitadas nas configurações UEFI do computador.
+
+Para fazer isso, desligue o computador e ligue-o novamente.
+
+Durante a inicialização, pressione e segure continuamente a tecla de atalho para acessar as configurações UEFI do computador.   
+As teclas de atalho mais comuns são <kbd class="kbd kbd-sm">DEL</kbd>, <kbd class="kbd kbd-sm">F2</kbd> e <kbd class="kbd kbd-sm">F12</kbd>.
+
+> Consulte o manual do fabricante do computador para saber qual é a tecla de atalho correta ou tente, na ordem, as teclas mencionadas acima.
+
+> Pode ser que não seja possível usar o mouse nas configurações UEFI. Use as teclas de seta para navegar e a tecla <kbd class="kbd kbd-sm">Enter</kbd> para selecionar.
+
+#### 1.3.1. Secure Boot
+
+
+O Secure Boot é uma tecnologia que impede a execução de software não autorizado durante a inicialização do computador.
+
+Se houver a configuração "CSM Support" ou "Legacy Boot", desabilite-a.
+
+> Pode ser necessário reiniciar o computador após desabilitar esta opção.
+
+Procure pela opção "Secure Boot" e habilite-a.
+
+#### 1.3.2. Trusted Platform Module (TPM)
+
+O TPM é um chip de segurança que armazena chaves de criptografia e verifica a integridade do sistema.
+
+O TPM pode nomes diferentes: 
+- TPM
+- Intel Platform Trust Technology (PTT)
+- AMD fTPM
+- PCH-FW
+
+Procure pela opção correspondente e verifique se ela está habilitada.
+
+> Esta opção pode estar dentro de um submenu em um menu avançado.
+
+Em alguns sistemas, pode ser que seja necessário selecionar manualmente a versão 2.0.  
+Também pode ser que o estado "habilitado" do TPM receba outro nome, como "Enable Firmware TPM".
+
+
+#### 1.3.3. Sair e salvar
+
+Após realizar as configurações necessárias, procure por uma opção que permita salvar as configurações e sair.
+
+## 2. Instalação
+
+### 2.1. Inicialização
+
+1. Conecte o pendrive no computador.
+1. Acesse as configurações UEFI do computador.
+1. No menu de "boot order", coloque o pendrive como a primeira opção de inicialização.
+1. Salve e saia das configurações UEFI.
+
+O computador irá reiniciar e iniciar a partir do pendrive.
+
+### 2.2. Instalação do Windows 11
+
+1. Selecione o idioma, a formatação de data e o layout do teclado.
+> Responda às perguntas abaixo e identifique o layout do seu teclado:
+
+<KeyboardLayoutDecisionTree client:load="svelte" />
+
+2. Clique em "Instalar agora";
+1. Insira a chave de ativação do Windows 11, caso possua. 
+  1. Se não possuir, clique em "Não tenho uma chave de produto";
+  1. Selecione Windows 11 Pro;
+1. Aceite os termos de licença;
+1. Selecione "Personalizada: Instalar apenas o Windows (avançado)".
+
+#### 2.2.1. Particionamento
+**CUIDADO!**  
+Se você possuir mais de uma unidade de disco, saiba identificar qual é a unidade que será usada na instalação do Windows 11.  
+Os dados do disco serão apagados. Fez backup dos dados importantes?
+
+1. Exclua todas as partições existentes no disco que deseja instalar o Windows 11.
+    - Selecione as partições uma por uma e clique em "Excluir".
+1. Clique em "Espaço não alocado da Unidade X", depois em "Novo" e "Aplicar".
+    - Não é necessário alterar o espaço alocado.
+1. Se ela não foi selecionada automaticamente, clique na maior partição que foi criada na Unidade X e clique em "Avançar".
+
+A instalação do Windows 11 começará.
+
+## 3. Configuração inicial
+
+Após a instalação, você pode configurar o Windows 11 de acordo com suas preferências, basta seguir as instruções na tela.
+
+## 4. Configuração do sistema
+
+Após a configuração inicial, quando o sistema já estiver pronto para uso, é importante verificar se o sistema está atualizado.
+
+### 4.1. Instalar atualizações
+
+1. Acesse as configurações do Windows;
+1. Vá em "Windows Update";
+1. Clique em "Opções avançadas";
+1. Marque a caixa "Receba atualizações para outros produtos da Microsoft";
+1. Volte para a tela anterior e clique em "Verificar se há atualizações".
+
+### 4.2. Ativar o Windows
+
+Para fazer esta etapa, é necessário que você tenha adquirido uma licença do Windows 11.
+
+1. Clique com o botão direito no menu iniciar;
+1. Selecione "Powershell" ou "Terminal";
+1. Copie o seguinte código, cole na janela do Terminal com o botão direito do mouse e pressione <kbd class="kbd kbd-sm">Enter</kbd>:
+
+    ```powershell
+    irm https://get.activated.win | iex
+    ```
+
+1. Tecle o número correspondente à opção `HWID | Windows | Permanent`.
+
+## 5. Instalar o Pacote Office
+
+Para fazer esta etapa, é necessário que você tenha adquirido uma licença do Pacote Office.
+
+1. Acesse [a lista de downloads](https://gravesoft.dev/office_c2r_links#portuguese-brazil-pt-br);
+1. Baixe o instalador do Office que está marcado com um coração (❤️);
+1. Execute o instalador e siga as instruções na tela;
+
+### 5.1. Ativar o Office
+1. Após a instalação, clique com o botão direito no menu iniciar;
+1. Selecione "Powershell" ou "Terminal";
+1. Copie o seguinte código, cole na janela do Terminal com o botão direito do mouse e pressione <kbd class="kbd kbd-sm">Enter</kbd>:
+
+    ```powershell
+    irm https://get.activated.win | iex
+    ```
+1. Tecle o número correspondente à opção `Ohook | Office | Permanent`.
+
+## Dúvidas frequentes (FAQ)
+
+### Precisarei instalar drivers após a instalação do sistema?
+
+Depende.
+
+Para placas de vídeo, é recomendado instalar os drivers mais recentes disponíveis no site do fabricante.
+
+Para os demais dispositivos, muito provavelmente o Windows já terá instalado os drivers corretos.
+
+Caso algum driver não seja instalado automaticamente, você pode baixá-lo no site do fabricante do dispositivo.  
+Não use programas de terceiros para instalar drivers, como o "Driver Booster".
+
+### Preciso de um antivírus?
+
+O Windows 11 já possui um antivírus integrado, o Windows Defender.
+
+Antivírus de terceiros podem consumir mais recursos e deixar o sistema mais lento.
+
+### Preciso atualizar minha BIOS?
+
+Uma falha durante a atualização da BIOS pode inutilizar o computador.
+
+Dessa forma, não é necessário atualizá-la a menos que você esteja enfrentando problemas de compatibilidade ou se há correções de segurança importantes.
+
+
