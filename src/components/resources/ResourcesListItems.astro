@@ -1,0 +1,89 @@
+---
+import { Calendar, Languages } from "lucide-astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { format } from 'date-fns'
+import { enUS, ptBR } from 'date-fns/locale'
+
+const currentLocale = Astro.currentLocale as string;
+
+import type { Item } from './ResourcesList.astro'
+
+const { list } = Astro.props;
+
+interface Props {
+  list: Item[];
+}
+
+function parseLang(lang: string) {
+  switch (lang) {
+    case "pt-br":
+      return "Português";
+    case "en":
+      return "English";
+    default:
+      return lang;
+  }
+}
+
+function sortLangs(langs: string[]){
+  return langs.sort((a, b) => {
+    if (a === "en") {
+      return -1;
+    }
+    if (b === "en") {
+      return 1;
+    }
+    return 0;
+  });
+}
+
+function getUrl(item: Item) {
+  if (item.url.external || !item.languages) {
+    return item.url.href;
+  }
+
+  if (item.languages.includes(currentLocale)){
+    return getRelativeLocaleUrl(currentLocale, item.url.href);
+  } else if (item.languages.includes("en")) {
+    return getRelativeLocaleUrl("en", item.url.href);
+  } else if (item.languages.includes("pt-br")) {
+    return getRelativeLocaleUrl("pt-br", item.url.href);
+  }
+
+  return item.url.href;
+}
+
+function formatDate(date: string) {
+  const locale = currentLocale === "pt-br" ? ptBR : enUS;
+  return format(new Date(date), "PPP", { locale });
+}
+---
+
+{
+  list.map((item) => (
+    <div class="pb-4">
+      <a class="text-xl hover:underline" href={getUrl(item)}>{item.title[currentLocale] || item.title["en"] || item.title["pt-br"]}</a>
+      {
+        item.date && (
+          <p>
+            <Calendar class="inline mr-1" />
+            <span>{formatDate(item.date)}</span>
+          </p>
+        )
+      }
+      {
+        item.languages && (
+          <p>
+            <Languages class="inline mr-1" />
+            {sortLangs(item.languages).map((lang, index) => (
+              <span>
+                <!-- prettier-ignore -->
+                {parseLang(lang)}{index !== item.languages!.length - 1 ? "," : ""}
+              </span>
+            ))}
+          </p>
+        )
+      }
+    </div>
+  ))
+}

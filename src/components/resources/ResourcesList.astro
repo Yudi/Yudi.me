@@ -1,0 +1,33 @@
+---
+import ResourcesListItems from "./ResourcesListItems.astro";
+
+const list: Item[] = [
+  {
+    title: {
+      "pt-br": "Como instalar o Windows 11",
+    },
+    languages: ["pt-br"],
+    date: "2024-06-16",
+    url: {
+      external: false,
+      href: "resources/install-windows-11",
+    },
+  },
+];
+
+export interface Item {
+  title: {
+    [key: string]: string;
+  };
+  languages?: string[];
+  date?: string;
+  url: {
+    external: boolean;
+    href: string;
+  };
+}
+---
+
+<div class="pt-4">
+  <ResourcesListItems list={list} />
+</div>
