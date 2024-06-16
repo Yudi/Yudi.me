@@ -1,0 +1,112 @@
+---
+import { Menu, Languages } from "lucide-svelte";
+
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+import { ChevronDown } from "lucide-astro";
+
+const { items } = Astro.props;
+interface Props {
+  items: Items[];
+}
+
+const currentPath = Astro.url.pathname;
+const currentPathWithoutLocale = currentPath.replace(/^\/[a-z]{2}-[a-z]{2}/, "");
+
+export interface Items {
+  name: string;
+  url?: string;
+  children?: {
+    name: string;
+    url?: string;
+  }[];
+}
+---
+
+<div class="navbar bg-base-100">
+  <div class="navbar-start">
+    <!-- Mobile -->
+    <div class="dropdown">
+      <label tabindex="0" class="btn btn-ghost lg:hidden">
+        <Menu class="h-5 w-5" />
+      </label>
+      <ul tabindex="0" class="menu dropdown-content menu-sm mt-3 w-52 rounded-box bg-base-100 p-2 shadow">
+        {
+          items.map((item) => (
+            <>
+              {item.children ? (
+                <li tabindex="0">
+                  <span class="h-12 justify-between pt-3.5">{item.name}</span>
+                  <ul class="p-2">
+                    {item.children.map((child) => (
+                      <li>
+                        <a class="h-12 pt-3.5" href={child.url || undefined}>
+                          {child.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ) : (
+                <li>
+                  <a class="h-12 pt-3.5" href={item.url || undefined}>
+                    {item.name}
+                  </a>
+                </li>
+              )}
+            </>
+          ))
+        }
+      </ul>
+    </div>
+    <a class="btn btn-ghost text-xl normal-case" href="/">Yudi</a>
+  </div>
+
+  <div class="navbar-end lg:hidden">
+    <li tabindex="0" class="dropdown dropdown-end">
+      <label tabindex="0" class="btn btn-ghost"> <Languages class="h-5 w-5" /></label>
+      <ul class="menu dropdown-content rounded-box bg-base-100 p-2 shadow">
+        <li><a class="h-12 pt-3.5" href={getRelativeLocaleUrl("en", currentPathWithoutLocale)}>English</a></li>
+        <li><a class="h-12 pt-3.5" href={getRelativeLocaleUrl("pt-br", currentPathWithoutLocale)}>Português</a></li>
+      </ul>
+    </li>
+  </div>
+
+  <!-- Desktop -->
+  <div class="navbar-end hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      {
+        items.map((item) => (
+          <>
+            {item.children ? (
+              <li tabindex="0" class="dropdown">
+                <label tabindex="0">
+                  {item.name} <ChevronDown class="h-5 w-5" />
+                </label>
+                <ul class="menu dropdown-content rounded-box bg-base-100 p-2 shadow">
+                  {item.children.map((child) => (
+                    <li>
+                      <a href={child.url || undefined}>{child.name}</a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ) : (
+              <li>
+                <a href={item.url || undefined}>{item.name}</a>
+              </li>
+            )}
+          </>
+        ))
+      }
+
+      <li tabindex="0" class="dropdown dropdown-end">
+        <label tabindex="0"> <Languages class="h-5 w-5" /></label>
+        <ul class="menu dropdown-content rounded-box bg-base-100 p-2 shadow">
+          <li><a href={getRelativeLocaleUrl("en", currentPathWithoutLocale)}>English</a></li>
+          <li><a href={getRelativeLocaleUrl("pt-br", currentPathWithoutLocale)}>Português</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

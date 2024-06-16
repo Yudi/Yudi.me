@@ -1,0 +1,36 @@
+---
+import Analytics from './Analytics.astro'
+const { title, description, lang } = Astro.props
+
+interface Props {
+	title?: string | undefined;
+	description?: string | undefined;
+  lang: string | undefined;
+}
+
+let defaultDescription: string = "";
+
+if (!description) {
+if (lang === "pt-br") {
+  defaultDescription = "Oi, sou Yudi e este é meu site pessoal! Aqui você encontra meus projetos, artigos e outras coisas que eu gosto."
+} else {
+  defaultDescription = "Hi, I'm Yudi and this is my personal website! Here you can find my projects, articles and other things I like."
+
+}
+
+
+}
+---
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+
+  {
+    <title>{title ? `${title} | Yudi` : 'Yudi'}</title>
+  }
+  <meta name="description" content={description || defaultDescription} />
+
+  <Analytics />
+</head>

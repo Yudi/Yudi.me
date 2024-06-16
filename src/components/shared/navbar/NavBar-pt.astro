@@ -1,0 +1,24 @@
+---
+import type { Items } from "./NavBar-common.astro";
+import Navbar from "./NavBar-common.astro";
+
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const items: Items[] = [
+  {
+    name: "Resenhas",
+    url: "https://reviews.yudi.com.br",
+  },
+  {
+    name: "Jardim digital",
+    children: [
+      {
+        name: "Estudos",
+        url: "https://studying.yudi.me",
+      },
+    ],
+  },
+];
+---
+
+<Navbar items={items} />
