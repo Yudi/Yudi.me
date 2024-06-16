@@ -1,0 +1,21 @@
+---
+import CommonHead from "../components/shared/CommonHead.astro";
+import Footer from "../components/shared/Footer.astro";
+import NavBar from "../components/shared/navbar/NavBar-pt.astro";
+
+interface Props {
+  title?: string | undefined;
+  description?: string | undefined;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="pt-br">
+  <CommonHead title={title} description={description} lang="pt-br" />
+  <body class="mx-auto min-h-screen max-w-5xl">
+    <NavBar />
+    <slot />
+    <Footer class="sticky top-[100vh]" />
+  </body>
+</html>
