@@ -28,7 +28,13 @@ if (!description) {
 
   {(<title>{title ? `${title} | Yudi` : "Yudi"}</title>)}
   <meta name="description" content={description || defaultDescription} />
+
   <link rel="sitemap" href="/sitemap-index.xml" />
+
+  <meta property="og:title" content="Yudi" />
+  <meta property="og:url" content="https://yudi.com.br/" />
+  <meta property="og:image" content="https://yudi.com.br/favicon.png" />
+  <meta property="og:type" content="website" />
 
   <Analytics />
 </head>
