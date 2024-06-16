@@ -8,7 +8,7 @@ export default {
       mono: ['"Source Code Pro"', '"JetBrains Mono"', "ui-monospace", '"Courier New"', "monospace"],
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require('@tailwindcss/typography'),],
   daisyui: {
     themes: [
       {
