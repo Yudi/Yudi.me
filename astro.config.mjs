@@ -2,8 +2,9 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import tailwind from "@astrojs/tailwind";
 import svelte from "@astrojs/svelte";
-
 import sitemap from "@astrojs/sitemap";
+
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,5 +24,7 @@ export default defineConfig({
     fallback: {
       "pt-br": "en"
     }
-  }
+  },
+  output: "server",
+  adapter: cloudflare()
 });
