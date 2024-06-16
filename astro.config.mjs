@@ -12,11 +12,11 @@ export default defineConfig({
   integrations: [mdx(), tailwind(), svelte(), sitemap({
     i18n: {
       defaultLocale: "en",
-      locales: ["en", "pt-br"],
-      fallback: {
-        "pt-br": "en"
+      locales: {
+        "en": "en", 
+        "pt-br": "pt-br"
       }
-    }
+    },
   })],
   i18n: {
     defaultLocale: "en",
