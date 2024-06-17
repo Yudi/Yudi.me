@@ -66,8 +66,16 @@ export interface Items {
     <li tabindex="0" class="dropdown dropdown-end">
       <label tabindex="0" class="btn btn-ghost"> <Languages class="h-5 w-5" /></label>
       <ul class="menu dropdown-content rounded-box bg-base-100 p-2 shadow">
-        <li><a class="h-12 pt-3.5" href={getRelativeLocaleUrl("en", currentPathWithoutLocale)}>English</a></li>
-        <li><a class="h-12 pt-3.5" href={getRelativeLocaleUrl("pt-br", currentPathWithoutLocale)}>Português</a></li>
+        <li>
+          <a class="h-12 pt-3.5 language-selector" href={getRelativeLocaleUrl("en", currentPathWithoutLocale)}
+            >English</a
+          >
+        </li>
+        <li>
+          <a class="h-12 pt-3.5 language-selector" href={getRelativeLocaleUrl("pt-br", currentPathWithoutLocale)}
+            >Português</a
+          >
+        </li>
       </ul>
     </li>
   </div>
@@ -103,10 +111,22 @@ export interface Items {
       <li tabindex="0" class="dropdown dropdown-end">
         <label tabindex="0"> <Languages class="h-5 w-5" /></label>
         <ul class="menu dropdown-content rounded-box bg-base-100 p-2 shadow">
-          <li><a href={getRelativeLocaleUrl("en", currentPathWithoutLocale)}>English</a></li>
-          <li><a href={getRelativeLocaleUrl("pt-br", currentPathWithoutLocale)}>Português</a></li>
+          <li><a class="language-selector" href={getRelativeLocaleUrl("en", currentPathWithoutLocale)}>English</a></li>
+          <li>
+            <a class="language-selector" href={getRelativeLocaleUrl("pt-br", currentPathWithoutLocale)}>Português</a>
+          </li>
         </ul>
       </li>
     </ul>
   </div>
 </div>
+
+<script>
+  const buttons = document.querySelectorAll(".language-selector");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      localStorage.setItem("languageSelectorTouched", "true");
+    });
+  });
+</script>
