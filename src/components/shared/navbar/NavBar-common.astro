@@ -63,26 +63,28 @@ export interface Items {
   </div>
 
   <div class="navbar-end lg:hidden">
-    <li tabindex="0" class="dropdown dropdown-end">
-      <label tabindex="0" class="btn btn-ghost"> <Languages class="h-5 w-5" /></label>
-      <ul class="menu dropdown-content rounded-box bg-base-100 p-2 shadow">
-        <li>
-          <a class="h-12 pt-3.5 language-selector" href={getRelativeLocaleUrl("en", currentPathWithoutLocale)}
-            >English</a
-          >
-        </li>
-        <li>
-          <a class="h-12 pt-3.5 language-selector" href={getRelativeLocaleUrl("pt-br", currentPathWithoutLocale)}
-            >Português</a
-          >
-        </li>
-      </ul>
-    </li>
+    <menu>
+      <li tabindex="0" class="dropdown dropdown-end">
+        <label tabindex="0" class="btn btn-ghost"> <Languages class="h-5 w-5" /></label>
+        <ul class="menu dropdown-content rounded-box bg-base-100 p-2 shadow">
+          <li>
+            <a class="h-12 pt-3.5 language-selector" href={getRelativeLocaleUrl("en", currentPathWithoutLocale)}
+              >English</a
+            >
+          </li>
+          <li>
+            <a class="h-12 pt-3.5 language-selector" href={getRelativeLocaleUrl("pt-br", currentPathWithoutLocale)}
+              >Português</a
+            >
+          </li>
+        </ul>
+      </li>
+    </menu>
   </div>
 
   <!-- Desktop -->
   <div class="navbar-end hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
+    <menu class="menu menu-horizontal px-1">
       {
         items.map((item) => (
           <>
@@ -117,7 +119,7 @@ export interface Items {
           </li>
         </ul>
       </li>
-    </ul>
+    </menu>
   </div>
 </div>
 
