@@ -1,12 +1,5 @@
 ---
-import { Github } from 'lucide-astro';
-const { class: className } = Astro.props
+const { class: className } = Astro.props;
 ---
 
-<footer class:list={['footer footer-center p-4', className]} >
-	<div class="grid-flow-col items-center gap-4">
-		<a href="https://github.com/Yudi" target="_blank">
-			<Github class="opacity-50 transition-opacity hover:opacity-100" />
-		</a>
-	</div>
-</footer>
+<footer class:list={["footer footer-center p-4", className]}></footer>

@@ -1,14 +1,106 @@
 ---
-	import { MapPin } from 'lucide-astro';
+import { MapPin, Github, Cpu, Map, Languages, Book, Utensils, Gamepad2, HandHelping, Palette } from "lucide-astro";
 ---
 
-<section class="w-full">
-	<div class="justify-top flex flex-1 flex-col items-center pt-12">
-		<h1 class="text-6xl">Renan Yudi</h1>
+<section class="w-full mb-10">
+  <div class="justify-top flex flex-1 flex-col items-center pt-12">
+    <h1 class="text-6xl">Renan Yudi</h1>
 
-		<div class="text-base font-light">
-			<MapPin class="inline-block w-4 align-bottom" />
-			São Paulo, Brasil
-		</div>
-	</div>
+    <div class="text-base font-light">
+      <MapPin class="inline-block w-6 align-bottom" />
+      São Paulo, Brasil
+    </div>
+  </div>
+</section>
+<section class="p-4">
+  <h2 class="text-3xl">Sobre</h2>
+  <p>
+    Sou um <b>desenvolvedor de software</b> com uma grande paixão por tecnologia e software de código aberto. Tenho foco
+    em desenvolver soluções que melhoram a vida das pessoas e que tornam a tecnologia mais acessível para todos.
+  </p>
+</section>
+<section class="p-4">
+  <a href="https://github.com/Yudi" class="inline-block">
+    <Github class="opacity-50 transition-opacity hover:opacity-100" />
+  </a>
+</section>
+
+<section class="p-4">
+  <details>
+    <summary class="text-3xl cursor-pointer">Hobbies</summary>
+    <p class="my-1.5">No meu tempo livre, gosto de contribuir para projetos que geram impactos positivos no mundo.</p>
+
+    <div class="flex items-center my-1.5">
+      <Cpu class="w-6 h-6 mr-2 flex-shrink-0" />
+      <span>
+        Em casa, sou <b>administrador de sistemas</b> e <b>engenheiro de redes</b>. Gerencio meu próprio servidor Linux
+        e <a href="https://status.yudi.me/">serviços auto-hospedados</a>, mantendo um uptime e segurança excepcionais,
+        com uma configuração de rede que inclui um <a href="https://www.wireguard.com/">VPN WireGuard</a> site-to-site, além
+        de servidores locais de DNS e NTP.</span
+      >
+    </div>
+
+    <div class="flex items-center my-1.5">
+      <HandHelping class="w-6 h-6 mr-2 flex-shrink-0" />
+      <span>
+        Ofereço <b>suporte técnico e consultoria</b> para amigos e familiares. Auxilio na avaliação de suas <b
+          >necessidades de hardware e software</b
+        >, oferecendo soluções personalizadas e implementando-as de forma eficiente.</span
+      >
+    </div>
+
+    <div class="flex items-center my-1.5">
+      <Book class="w-6 h-6 mr-2 flex-shrink-0" />
+      <span>
+        <b>Escrevi documentações</b> para DiscordChatExporter e CACiC, ajudando os usuários a entenderem e utilizarem ferramentas
+        de forma mais eficaz.</span
+      >
+    </div>
+
+    <div class="flex items-center my-1.5">
+      <Languages class="w-6 h-6 mr-2 flex-shrink-0" />
+      <span>
+        Trabalhei como voluntário para <b>traduzir e revisar</b> textos de projetos de software para o <b
+          >Português Brasileiro</b
+        > e para o <b>Espanhol</b>, incluindo para plataformas como o Discord e o MultiMC.</span
+      >
+    </div>
+
+    <div class="flex items-center my-1.5">
+      <Palette class="w-6 h-6 mr-2 flex-shrink-0" />
+      <span>
+        Sou <b>designer gráfico</b> e <b>designer UI/UX</b>, com experiência na criação de marcas, materiais de
+        marketing, interfaces acessíveis e diversos outros gráficos, para múltiplos projetos e eventos. Como <b
+          >modelador 3D</b
+        > amador, também gosto de explorar design em três dimensões.</span
+      >
+    </div>
+
+    <div class="flex items-center my-1.5">
+      <Map class="w-6 h-6 mr-2 flex-shrink-0" />
+      <span>
+        Sou um colaborador ativo em plataformas de mapeamento como Google Maps, onde já fiz mais de 1.000 edições, além
+        de ter adicionado avaliações e fotos para melhorar a <b>precisão dos dados</b>. Além disso, sou editor de mapas
+        do Waze e reporto problemas no Apple Maps para <b>melhorar a qualidade dos mapas e a experiência do usuário</b
+        >.</span
+      >
+    </div>
+
+    <div class="flex items-center my-1.5">
+      <Utensils class="w-6 h-6 mr-2 flex-shrink-0" />
+      <span>
+        Como entusiasta da gastronomia, compartilho minhas aventuras culinárias no meu <a
+          href="https://reviews.yudi.com.br">blog de resenhas</a
+        >, onde <b>escrevo experiências</b> sobre diversos restaurantes e pratos.</span
+      >
+    </div>
+
+    <div class="flex items-center my-1.5">
+      <Gamepad2 class="w-6 h-6 mr-2 flex-shrink-0" />
+      <span>
+        Também gosto de jogar videogames, ler livros, ouvir música, <b>estudar direito</b> e <b>preservar a história</b
+        >.</span
+      >
+    </div>
+  </details>
 </section>
