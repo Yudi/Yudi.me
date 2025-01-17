@@ -3,6 +3,8 @@ import Analytics from "./Analytics.astro";
 import GlobalStyles from "../../layouts/GlobalStyles.astro";
 const { title, description, lang } = Astro.props;
 
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
 interface Props {
   title?: string | undefined;
   description?: string | undefined;
@@ -31,6 +33,7 @@ if (!description) {
   <meta name="description" content={description || defaultDescription} />
 
   <link rel="sitemap" href="/sitemap-index.xml" />
+  <link rel="canonical" href={canonicalURL} />
 
   <meta property="og:title" content="Yudi" />
   <meta property="og:url" content="https://yudi.com.br/" />
