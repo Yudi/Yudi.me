@@ -1,5 +1,5 @@
 ---
-import { Menu, Languages } from "lucide-svelte";
+import { Menu, Languages } from "lucide-astro";
 
 import { getRelativeLocaleUrl } from "astro:i18n";
 
@@ -13,18 +13,26 @@ interface Props {
 const currentPath = Astro.url.pathname;
 const currentPathWithoutLocale = currentPath.replace(/^\/[a-z]{2}-[a-z]{2}/, "");
 
-export interface Items {
+type ItemWithUrl = {
   name: string;
-  url?: string;
-  children?: {
+  url: string;
+  children?: never; // This denies the presence of `children` when there's a `url`
+};
+
+type ItemWithChildren = {
+  name: string;
+  url?: never; // This denies the presence of `url` when there are `children`
+  children: {
     name: string;
     url?: string;
   }[];
-}
+};
+
+export type Items = ItemWithUrl | ItemWithChildren;
 ---
 
 <div class="navbar bg-base-100">
-  <div class="navbar-start">
+  <div class="navbar-start lg:w-3/12">
     <!-- Mobile -->
     <div class="dropdown">
       <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -36,7 +44,7 @@ export interface Items {
             <>
               {item.children ? (
                 <li tabindex="0">
-                  <span class="h-12 justify-between pt-3.5">{item.name}</span>
+                  <span class="h-12 justify-between pt-3.5 menu-title">{item.name}</span>
                   <ul class="p-2">
                     {item.children.map((child) => (
                       <li>
@@ -83,7 +91,7 @@ export interface Items {
   </div>
 
   <!-- Desktop -->
-  <div class="navbar-end hidden lg:flex">
+  <div class="navbar-end hidden lg:flex lg:w-9/12">
     <menu class="menu menu-horizontal px-1">
       {
         items.map((item) => (

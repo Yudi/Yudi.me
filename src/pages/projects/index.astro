@@ -1,0 +1,45 @@
+---
+import ProjectCard from "../../components/projects/ProjectCard.astro";
+import BaseLayoutEn from "../../layouts/BaseLayout-en.astro";
+---
+
+<BaseLayoutEn>
+  <section class="m-auto p-4 max-w-4xl">
+    <h1 class="text-2xl font-semibold">Projects</h1>
+    <h2 class="text-xl">Personal</h2>
+    <div class="m-4 flex flex-col gap-8">
+      <div class="flex flex-col gap-8 sm:grid sm:grid-cols-8">
+        <ProjectCard
+          image="https://placehold.co/600x400"
+          title="Criminality map"
+          size={4}
+          href="https://github.com/cacic-fct/fct-app"
+        />
+      </div>
+    </div>
+
+    <h2 class="text-xl">CACiC</h2>
+    <p>
+      It's the representative entity of the students of the Bachelor's Degree in Computer Science at FCT-Unesp.
+      <br />
+      I've contributed with projects for the organization during my graduation and provided maintenance after leaving.
+    </p>
+    <div class="m-4 flex flex-col gap-8">
+      <div class="flex flex-col gap-8 sm:grid sm:grid-cols-8">
+        <ProjectCard
+          image="https://placehold.co/600x400"
+          title="FCT App"
+          size={5}
+          toptitle="Event management"
+          href="https://github.com/cacic-fct/fct-app"
+        />
+        <ProjectCard image="https://placehold.co/600x400" title="CACiC's homepage" size={3} href="placeholder" />
+      </div>
+      <div class="flex flex-col gap-8 sm:grid sm:grid-cols-8">
+        <ProjectCard image="https://placehold.co/600x400" title="CACiC's server" size={4} href="placeholder" />
+        <ProjectCard image="https://placehold.co/600x400" title="SECOMPP's homepage" size={2} href="placeholder" />
+        <ProjectCard image="https://placehold.co/600x400" title="Freshmen handbook" size={2} href="placeholder" />
+      </div>
+    </div>
+  </section>
+</BaseLayoutEn>

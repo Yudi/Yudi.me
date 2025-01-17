@@ -6,6 +6,19 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 
 const items: Items[] = [
   {
+    name: "Résumé",
+    children: [
+      {
+        name: "Résumé",
+        url: getRelativeLocaleUrl("en", "resume"),
+      },
+      {
+        name: "Projects",
+        url: getRelativeLocaleUrl("en", "projects"),
+      },
+    ],
+  },
+  {
     name: "Resources",
     url: getRelativeLocaleUrl("en", "resources"),
   },
