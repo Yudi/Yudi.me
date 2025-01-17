@@ -1,12 +1,12 @@
 ---
 import { Calendar, Languages } from "lucide-astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { format } from 'date-fns'
-import { enUS, ptBR } from 'date-fns/locale'
+import { format } from "date-fns";
+import { enUS, ptBR } from "date-fns/locale";
 
 const currentLocale = Astro.currentLocale as string;
 
-import type { Item } from './ResourcesList.astro'
+import type { Item } from "./ResourcesList.astro";
 
 const { list } = Astro.props;
 
@@ -25,7 +25,7 @@ function parseLang(lang: string) {
   }
 }
 
-function sortLangs(langs: string[]){
+function sortLangs(langs: string[]) {
   return langs.sort((a, b) => {
     if (a === "en") {
       return -1;
@@ -42,7 +42,7 @@ function getUrl(item: Item) {
     return item.url.href;
   }
 
-  if (item.languages.includes(currentLocale)){
+  if (item.languages.includes(currentLocale)) {
     return getRelativeLocaleUrl(currentLocale, item.url.href);
   } else if (item.languages.includes("en")) {
     return getRelativeLocaleUrl("en", item.url.href);
@@ -62,28 +62,35 @@ function formatDate(date: string) {
 {
   list.map((item) => (
     <div class="pb-4">
-      <a class="text-xl hover:underline" href={getUrl(item)}>{item.title[currentLocale] || item.title["en"] || item.title["pt-br"]}</a>
-      {
-        item.date && (
-          <p>
-            <Calendar class="inline mr-1" />
-            <span>{formatDate(item.date)}</span>
-          </p>
-        )
-      }
-      {
-        item.languages && (
-          <p>
-            <Languages class="inline mr-1" />
-            {sortLangs(item.languages).map((lang, index) => (
-              <span>
-                <!-- prettier-ignore -->
-                {parseLang(lang)}{index !== item.languages!.length - 1 ? "," : ""}
-              </span>
-            ))}
-          </p>
-        )
-      }
+      <a class="text-xl hover:underline" href={getUrl(item)}>
+        {item.title[currentLocale] || item.title["en"] || item.title["pt-br"]}
+      </a>
+      {item.date && (
+        <p>
+          <Calendar class="inline mr-1" />
+          <span>{formatDate(item.date)}</span>
+        </p>
+      )}
+      {item.languages && (
+        <p>
+          <Languages class="inline mr-1" />
+          {sortLangs(item.languages).map((lang, index) => (
+            <>
+              {item.languages!.length === 1 ? (
+                <span>{parseLang(lang)}</span>
+              ) : (
+                <a
+                  href={lang === "en" ? `/${item.url.href}` : getRelativeLocaleUrl(lang, item.url.href)}
+                  class="hover:underline"
+                >
+                  {parseLang(lang)}
+                </a>
+              )}
+              {index !== item.languages!.length - 1 && ", "}
+            </>
+          ))}
+        </p>
+      )}
     </div>
   ))
 }
