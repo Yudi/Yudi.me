@@ -1,8 +1,7 @@
 ---
 import { Calendar, Languages } from "lucide-astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { format } from "date-fns";
-import { enUS, ptBR } from "date-fns/locale";
+import { formatDate } from "./shared/date.service";
 
 const currentLocale = Astro.currentLocale as string;
 
@@ -52,11 +51,6 @@ function getUrl(item: Item) {
 
   return item.url.href;
 }
-
-function formatDate(date: string) {
-  const locale = currentLocale === "pt-br" ? ptBR : enUS;
-  return format(new Date(date), "PPP", { locale });
-}
 ---
 
 {
@@ -68,7 +62,7 @@ function formatDate(date: string) {
       {item.date && (
         <p>
           <Calendar class="inline mr-1" />
-          <span>{formatDate(item.date)}</span>
+          <span>{formatDate(item.date, currentLocale, "PPP")}</span>
         </p>
       )}
       {item.languages && (
