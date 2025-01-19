@@ -7,7 +7,7 @@ tags: ["networking", "vivo"]
 
 The default setup page of the Mitrastar modem/router combo (HGU) provided by Vivo has a bridge mode, but it's not properly implemented. When it's enabled, the HGU no longer serves VOIP and IPTV services.
 
-Vivo blocks the advanced settings page by default. But this can be bypassed with the following steps:
+**Unlocking the advanced settings page:**
 
 1. Disconnect the fiber cable from the modem
 1. Hard reset the modem
@@ -31,6 +31,8 @@ Vivo blocks the advanced settings page by default. But this can be bypassed with
 1. Go to `Manutenção` > `TR-069 Client` > `CWMP` and disable it. Also disable `MGMT Remoto`
 
    - This will prevent Vivo from remotely changing the modem's settings, misconfiguring it and removing the advanced settings page
+
+**Bridge setup:**
 
 1. Go to `Configuração de Rede` > `WAN` and edit the "Internet" entry:
 

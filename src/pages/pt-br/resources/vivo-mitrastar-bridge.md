@@ -7,7 +7,9 @@ tags: ["networking", "vivo"]
 
 A página de configuração padrão do modem Mitrastar (HGU) fornecido pela Vivo possui um modo bridge, mas ele não é implementado corretamente. Quando ativado, o HGU não fornece mais os serviços de VOIP e IPTV.
 
-A Vivo bloqueia a página de configurações avançadas (`/padrao`), mas isso pode ser contornado com os seguintes passos:
+Para corrigir isso, você precisará desbloquear a página `/padrao` de configurações avançadas do modem, que é bloqueada pela operadora. Isso pode ser feito com os seguintes passos:
+
+**Desbloqueio da página de configurações avançadas:**
 
 1. Desconecte o cabo de fibra do modem
 1. Faça um hard reset no modem
@@ -33,6 +35,8 @@ A Vivo bloqueia a página de configurações avançadas (`/padrao`), mas isso po
 1. Vá em `Manutenção` > `TR-069 Client` > `CWMP` e desative a opção. Também desative o `MGMT Remoto`
 
    - Isso impedirá que a Vivo altere remotamente as configurações do modem, o que redefiniria as opções alteradas e removeria a página de configurações avançadas
+
+**Configuração do bridge:**
 
 1. Vá para `Configuração de Rede` > `WAN` e modifique o item "Internet":
 
