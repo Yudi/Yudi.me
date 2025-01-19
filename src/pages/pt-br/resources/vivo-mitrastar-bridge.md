@@ -7,7 +7,7 @@ tags: ["networking", "vivo"]
 
 A página de configuração padrão do modem Mitrastar (HGU) fornecido pela Vivo possui um modo bridge, mas ele não é implementado corretamente. Quando ativado, o HGU não fornece mais os serviços de VOIP e IPTV.
 
-Para corrigir isso, você precisará desbloquear a página `/padrao` de configurações avançadas do modem, que é bloqueada pela operadora. Isso pode ser feito com os seguintes passos:
+Para corrigir isso, você também precisa saber como desbloquear a página `/padrao` de configurações avançadas do modem, que é bloqueada pela operadora. Isso pode ser feito com os seguintes passos:
 
 **Desbloqueio da página de configurações avançadas:**
 
