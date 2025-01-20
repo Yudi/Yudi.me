@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/MarkdownPostLayout-en.astro
-title: How to setup the Vivo Mitrastar modem in bridge mode without losing TV and Phone services
+title: How to setup the Vivo MitraStar modem in bridge mode without losing TV and Phone services
 date: 2025-01-17
 tags: ["networking", "vivo"]
 ---
 
-The default setup page of the Mitrastar modem/router combo (HGU) provided by Vivo has a bridge mode, but it's not properly implemented. When it's enabled, the HGU no longer serves VOIP and IPTV services.
+The default setup page of the MitraStar modem/router combo (HGU) provided by Vivo has a bridge mode, but it's not properly implemented. When it's enabled, the HGU no longer serves VOIP and IPTV services.
 
 To fix this, you also need to know how to unlock the modem's advanced settings page, which is blocked by the ISP. This can be done with the following steps:
 
@@ -50,4 +50,4 @@ To fix this, you also need to know how to unlock the modem's advanced settings p
    - The username is `cliente@cliente`
    - The password is `cliente`
 
-Done! Now you have the Vivo Mitrastar modem in bridge mode without losing TV and Phone services.
+Done! Now you have the Vivo MitraStar modem in bridge mode without losing TV and Phone services.
