@@ -11,7 +11,7 @@ export const resumeDataEn: Resume = {
   technologies: [
     {
       section: "Languages",
-      skills: ["JavaScript", "TypeScript", "Python", "SQL", "C"],
+      skills: ["JavaScript", "TypeScript", "Python", "SQL", "C", "C#"],
     },
     {
       section: "Frameworks",
@@ -37,6 +37,20 @@ export const resumeDataEn: Resume = {
       date: "2020 - 2022 (interrupted)",
     },
   ],
+  experience: [
+    {
+      company: "Vunesp - Foundation for the entrance examination for Unesp",
+      position: "Proctor",
+      date: "2022",
+      description: "Proctored several exams. Ensured fairness and security during the exams.",
+    },
+    {
+      company: "Fuvest - Universitary Foundation for the entrance examination for USP",
+      position: "Proctor",
+      date: "2022",
+      description: "Ensured fairness and security during the exams.",
+    },
+  ],
   projects: [
     {
       title: "FCT App",
@@ -52,7 +66,15 @@ export const resumeDataEn: Resume = {
     },
     {
       section: "Graphics Design",
-      items: ["Adobe Photoshop", "Adobe Illustrator", "Figma", "3ds Max", "Mudbox"],
+      items: ["Adobe Photoshop", "Adobe Illustrator", "Sketch", "Figma"],
+    },
+    {
+      section: "3D Modeling",
+      items: ["3ds Max", "Mudbox"],
+    },
+    {
+      section: "Video editing",
+      items: ["Final Cut Pro", "Adobe Premiere", "Adobe After Effects"],
     },
   ],
   resumeUrl: "https://yudi.me/resume",
