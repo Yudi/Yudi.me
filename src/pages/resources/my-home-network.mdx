@@ -1,0 +1,96 @@
+---
+layout: ../../../layouts/MarkdownPostLayout-pt.astro
+title: How I manage my home network
+date: 2025-01-17
+tags: ["networking", "home network"]
+---
+
+This post aims to document how I manage my home network.
+
+# ISP setup
+
+## Cabonnet
+
+### MAC address cloning
+
+Cabonnet requires the MAC address of the device connected to the ONU to be previously registered.
+
+## Vivo
+
+### MitraStar HGU
+
+#### Proper bridge mode
+
+Read [How to setup the Vivo MitraStar modem in bridge mode without losing TV and Phone services]( {getRelativeLocaleUrl("/resources/vivo-mitrastar-bridge/") }).
+
+## Claro
+
+### CGNAT removal
+
+Claro uses CGNAT by default, which makes it impossible to host services. To remove it, one must call their support and ask "I'm 'natted' and I'd like a rollback to open ports to access my IP cameras out of home".
+
+# IP addressing
+
+## Subnetting
+
+I manage a `10.0.0.0/8` network as I have several subnets due to hierarchical addressing.
+
+My network is divided as follows:
+
+10.x.y.z
+
+- x: site number:
+  - 0: Core
+  - Other sites have their IPs allocated sequentially starting at 1
+- y: network number
+  - 1: Core
+  - 2: VPN
+  - 3: IoT
+  - 4: Guest
+- z: host number
+  - 1: Gateway
+  - 2: Main server
+  - Other devices have their IPs allocated sequentially starting at 3
+  - All known devices have a static IP and DNS entry
+
+The Core site has a public IP and no ports are blocked by the ISP. If needed, it can work as a reverse proxy for services hosted on other sites.
+
+All trusted devices, such as PCs, servers, and secure IoT hubs and devices (Apple TV) are on the Core network.
+
+IoT and Guest networks isolate clients from talking to each other but still provide access to the internet. If WAN access blocking is needed, it's done on the network's firewall.
+
+A mDNS reflector runs on the Core network to allow devices on different subnets to discover each other when needed.
+
+# VLAN tagging
+
+# Fully Qualified Domain Names (FQDN)
+
+I use the `yudi.me` domain for all my network-related services. All devices have a DNS entry with their FQDN in the format `device.site.yudi.me`.
+
+# Site to site VPN
+
+All my sites are interconnected using WireGuard VPN. The Core site has a public IP and acts as the VPN server. All other sites have a WireGuard client running on a Raspberry Pi.
+
+# Wireless networks
+
+I use generic names for my networks for simplicity:
+
+- Core: Wi-Fi [site]
+- IoT: Wi-Fi [site] IoT
+- Guest: Wi-Fi [site] Guest
+
+Adding the site name avoids collisions as "Wi-Fi" can be a common SSID.
+
+All networks use WPA3-SAE, except for the IoT network, which uses WPA2-PSK/WPA3-SAE for better compatibility with devices that no longer receive updates.
+
+# Wishlist
+
+These are the things I'd like to implement on my network in the future:
+
+- M2M
+  - SIMs are only available to enterprises
+- IPv6 subnetting
+  - /56 prefixes are only available to enterprises
+- Own ONU
+  - Some ISPs make this very difficult
+  - All ONUs provided by my ISPs have been good so far
