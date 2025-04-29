@@ -1,0 +1,86 @@
+---
+import {
+  Laptop2,
+  Wrench,
+  Languages,
+  PenLine,
+  Palette,
+  MapPin,
+  Utensils,
+  BookOpenCheck,
+  Gamepad2,
+  Video,
+} from "lucide-astro";
+
+const hobbies = [
+  {
+    icon: Laptop2,
+    title: "System Administrator",
+    description: "Maintain servers and networks with a focus on uptime, privacy, and performance.",
+  },
+  {
+    icon: Wrench,
+    title: "IT Consultant",
+    description: "Provide hardware and software guidance, support, and tailored solutions.",
+  },
+  {
+    icon: PenLine,
+    title: "Technical Writer",
+    description: "Create clear and concise documentation to improve software and system usability.",
+  },
+  {
+    icon: Languages,
+    title: "Translator & Proofreader",
+    description: "Adapt content across languages while maintaining clarity and consistency.",
+  },
+  {
+    icon: Palette,
+    title: "Graphic Designer & 3D Modeler",
+    description: "Design interfaces, branding, and explore creative expression through 3D projects.",
+  },
+  {
+    icon: Video,
+    title: "Video Editor",
+    description: "Edit multimedia content for creative, informational and educational purposes.",
+  },
+  {
+    icon: MapPin,
+    title: "Mapping Contributor",
+    description: "Edit maps and contribute feedback to improve location data and navigation tools.",
+  },
+  {
+    icon: Utensils,
+    title: "Food Blogger",
+    description: "Write and share culinary experiences, reviews, and insights on dining culture.",
+  },
+  {
+    icon: BookOpenCheck,
+    title: "Law & History Enthusiast",
+    description: "Explore laws and preserve historical contexts to share knowledge.",
+  },
+  {
+    icon: Gamepad2,
+    title: "Gamer & Media Lover",
+    description: "I also enjoy games, books, and music.",
+  },
+];
+---
+
+<section class="py-10 max-w-6xl mx-auto">
+  <h2 class="text-3xl mb-8">Hobbies</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {
+      hobbies.map(({ icon: Icon, title, description }) => (
+        <div class="card bg-base-100 shadow-md hover:shadow-xl dark:hover:shadow-none transition dark:shadow-none dark:bg-gray-800">
+          <div class="card-body">
+            <>
+              <Icon class="w-6 h-6 text-primary" aria-hidden="true" />
+              <h3 class="card-title mt-2">{title}</h3>
+            </>
+            <p class="text-sm">{description}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

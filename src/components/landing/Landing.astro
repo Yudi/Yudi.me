@@ -1,7 +1,8 @@
 ---
-import { MapPin, Cpu, Map, Languages, Book, Utensils, Gamepad2, HandHelping, Palette } from "lucide-astro";
+import { MapPin } from "lucide-astro";
 import Lattes from "../../assets/icons/lattes.svg";
 import GitHub from "../../assets/icons/github.svg";
+import HobbiesCards from "./HobbiesCards.astro";
 ---
 
 <section class="w-full mb-10">
@@ -18,7 +19,7 @@ import GitHub from "../../assets/icons/github.svg";
   <h2 class="text-3xl">About</h2>
   <p>
     I'm a <b>software developer</b> with a deep passion for technology and open-source software. I'm particularly focused
-    on developing solutions that enhance people's lives and make technology more accessible to everyone.
+    on creating solutions that enhance people's lives and make technology more accessible to everyone.
   </p>
 </section>
 <section class="p-4">
@@ -31,81 +32,5 @@ import GitHub from "../../assets/icons/github.svg";
 </section>
 
 <section class="p-4">
-  <details>
-    <summary class="text-3xl">Hobbies</summary>
-    <p class="my-1.5">On my free time, I like contributing to projects that generate positive impacts on the world.</p>
-
-    <div class="flex items-center my-1.5">
-      <Cpu class="w-6 h-6 mr-2 flex-shrink-0" />
-      <span>
-        At home, I'm a <b>system administrator</b> and <b>network engineer</b>. I manage my own Linux server and <a
-          href="https://status.yudi.me/">self-hosted services</a
-        >, maintaining exceptional uptime and security, with a network setup that includes a site-to-site <a
-          href="https://www.wireguard.com/">WireGuard</a
-        > VPN, along with its own local DNS and NTP servers.</span
-      >
-    </div>
-
-    <div class="flex items-center my-1.5">
-      <HandHelping class="w-6 h-6 mr-2 flex-shrink-0" />
-      <span>
-        I provide <b>tech support and consulting</b> to friends and family. I assist them in assessing their <b
-          >hardware and software</b
-        > needs, offering tailored solutions, and implementing them efficiently.</span
-      >
-    </div>
-
-    <div class="flex items-center my-1.5">
-      <Book class="w-6 h-6 mr-2 flex-shrink-0" />
-      <span>
-        I've <b>written documentation</b> for DiscordChatExporter and CACiC, helping users understand and utilize tools more
-        effectively.</span
-      >
-    </div>
-
-    <div class="flex items-center my-1.5">
-      <Languages class="w-6 h-6 mr-2 flex-shrink-0" />
-      <span>
-        I've volunteered to <b>translate and proofread</b> software projects into <b>Brazilian Portuguese</b> and <b
-          >Spanish</b
-        >, including platforms such as Discord and MultiMC.</span
-      >
-    </div>
-
-    <div class="flex items-center my-1.5">
-      <Palette class="w-6 h-6 mr-2 flex-shrink-0" />
-      <span>
-        I am also a <b>graphic designer</b> and <b>UI/UX designer</b>, with experience creating branding, marketing
-        materials, accessible interfaces, and various other graphics for multiple projects and events. As an amateur <b
-          >3D modeler</b
-        >, I enjoy exploring design in three dimensions as well. I'm also a skilled <b>video editor</b>.</span
-      >
-    </div>
-
-    <div class="flex items-center my-1.5">
-      <Map class="w-6 h-6 mr-2 flex-shrink-0" />
-      <span>
-        I am an active contributor to mapping platforms like Google Maps, where I've made over 1,000 edits, along with
-        adding reviews and photos to improve <b>data accuracy</b>. Additionally, I am a Waze map editor and report
-        issues to Apple Maps to <b>enhance map quality and user experience</b>.</span
-      >
-    </div>
-
-    <div class="flex items-center my-1.5">
-      <Utensils class="w-6 h-6 mr-2 flex-shrink-0" />
-      <span>
-        As a food enthusiast, I share my culinary adventures on my reviews blog, where I <b>write experiences</b> about various
-        restaurants and dishes.</span
-      >
-    </div>
-
-    <div class="flex items-center my-1.5">
-      <Gamepad2 class="w-6 h-6 mr-2 flex-shrink-0" />
-      <span>
-        I also enjoy playing video games, reading books, listening to music, <b>studying law</b> and <b
-          >preserving history</b
-        >.</span
-      >
-    </div>
-  </details>
+  <HobbiesCards />
 </section>
