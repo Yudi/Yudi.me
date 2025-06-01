@@ -1,5 +1,6 @@
 export const resumeStringsPt = {
   title: "Currículo",
+  home: "Início",
   print: "Imprimir",
   description: "Clique em qualquer seção ou linha para ocultar informações antes de imprimir.",
   technologies: "Tecnologias e frameworks",

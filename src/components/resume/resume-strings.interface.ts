@@ -1,5 +1,6 @@
 export interface ResumeStrings {
   title: string;
+  home: string;
   print: string;
   description: string;
   technologies: string;

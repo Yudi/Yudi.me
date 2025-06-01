@@ -1,5 +1,6 @@
 export const resumeStringsEn = {
   title: "Resumé",
+  home: "Home",
   print: "Print",
   description: "Click on any sections or lines to hide information before printing.",
   technologies: "Technologies and frameworks",

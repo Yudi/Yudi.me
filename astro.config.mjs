@@ -12,7 +12,7 @@ export default defineConfig({
 
   integrations: [
     mdx(),
-    svelte(),
+    svelte({ extensions: [".svelte"] }),
     sitemap({
       i18n: {
         defaultLocale: "en",

@@ -25,7 +25,7 @@ export const resumeData: Resume = {
         en: "Frameworks",
         pt: "Frameworks",
       },
-      skills: ["Angular", "Svelte", "Next.js", "NestJS"],
+      skills: ["Angular", "Svelte", "Astro", "Next.js", "NestJS"],
       hidden: false,
     },
     {
@@ -55,7 +55,7 @@ export const resumeData: Resume = {
         en: "Tools",
         pt: "Ferramentas",
       },
-      skills: ["Git", "Docker", "Bash", "Zsh"],
+      skills: ["Git", "Docker", "Regex", "Bash", "Zsh"],
       hidden: false,
     },
     {

@@ -1,6 +1,5 @@
 ---
 import BaseLayoutEn from "../layouts/BaseLayout-en.astro";
-
 import Landing from "../components/landing/Landing.astro";
 ---
 
@@ -9,7 +8,7 @@ import Landing from "../components/landing/Landing.astro";
 </BaseLayoutEn>
 
 <script>
-  const userLocale = Astro.preferredLocale;
+  const userLocale = navigator.language || navigator.languages?.[0];
 
   const languageSelectorTouched = localStorage.getItem("languageSelectorTouched");
   if (!languageSelectorTouched) {

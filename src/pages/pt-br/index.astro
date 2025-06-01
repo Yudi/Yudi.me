@@ -1,6 +1,5 @@
 ---
 import BaseLayoutPt from "../../layouts/BaseLayout-pt.astro";
-
 import Landing from "../../components/landing/Landing-pt.astro";
 ---
 
@@ -9,11 +8,12 @@ import Landing from "../../components/landing/Landing-pt.astro";
 </BaseLayoutPt>
 
 <script>
-  const userLocale = Astro.preferredLocale;
+  const userLocale = navigator.language || navigator.languages?.[0];
+
   const languageSelectorTouched = localStorage.getItem("languageSelectorTouched");
   if (!languageSelectorTouched) {
-    if (userLocale?.match(/^en(-[A-Za-z]{2})?$/)) {
-      window.location.href = "/";
+    if (userLocale?.match(/^pt(-[A-Za-z]{2})?$/)) {
+      window.location.href = "/pt-br";
     }
   }
 </script>
