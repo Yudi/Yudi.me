@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import svelte from "@astrojs/svelte";
 import sitemap from "@astrojs/sitemap";
 
@@ -9,9 +9,9 @@ import cloudflare from "@astrojs/cloudflare";
 // https://astro.build/config
 export default defineConfig({
   site: "https://yudi.com.br",
+
   integrations: [
     mdx(),
-    tailwind(),
     svelte(),
     sitemap({
       i18n: {
@@ -23,6 +23,7 @@ export default defineConfig({
       },
     }),
   ],
+
   i18n: {
     defaultLocale: "en",
     locales: ["en", "pt-br"],
@@ -30,9 +31,11 @@ export default defineConfig({
       "pt-br": "en",
     },
   },
+
   output: "server",
   adapter: cloudflare(),
-  experimental: {
-    svg: true,
+
+  vite: {
+    plugins: [tailwindcss()],
   },
 });
