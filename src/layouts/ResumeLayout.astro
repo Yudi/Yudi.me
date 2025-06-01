@@ -1,0 +1,48 @@
+---
+import CommonHead from "../components/shared/CommonHead.astro";
+import type { Resume as ResumeData } from "../components/resume/resume.interface";
+import type { ResumeStrings } from "../components/resume/resume-strings.interface";
+
+interface Props {
+  data: ResumeData;
+  str: ResumeStrings;
+  language: string;
+}
+
+const { data, str, language } = Astro.props;
+---
+
+<html lang={language}>
+  <CommonHead title={str.title} description={description} lang="pt-br" />
+  <body class="mx-auto min-h-screen max-w-5xl">
+    <p class="print-only">
+      {str.fullVersion}: <a>
+        <a href={data.resumeUrl} target="_blank" rel="noopener noreferrer">
+          {data.resumeUrl.replace(/^https?:\/\//, "")}
+        </a>
+      </a>
+    </p>
+
+    <style>
+      .screen-only {
+        @media print {
+          display: none;
+        }
+
+        @media screen {
+          display: block;
+        }
+      }
+
+      .print-only {
+        /* @media print {
+          display: block;
+        } */
+
+        @media screen {
+          display: none;
+        }
+      }
+    </style>
+  </body>
+</html>

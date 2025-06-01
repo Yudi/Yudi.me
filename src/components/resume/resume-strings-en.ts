@@ -1,0 +1,18 @@
+export const resumeStringsEn = {
+  title: "Resumé",
+  print: "Print",
+  description: "Click on any sections or lines to hide information before printing.",
+  technologies: "Technologies and frameworks",
+  education: "Education",
+  workExperience: "Work experience",
+  projects: "Projects",
+  interests: "Interests",
+  academicLife: "Academic life",
+  extension: "Extension",
+  organizations: "Organizations",
+  events: "Events",
+  speeches: "Speeches",
+  competitions: "Competitions",
+  publications: "Publications",
+  fullVersion: "Full version at",
+};

@@ -4,33 +4,193 @@ export interface Resume {
     email: string;
     github: string;
     linkedin: string;
-    location: string;
+    lattes: string;
+    location: {
+      en: string;
+      pt: string;
+    };
     website: string;
   };
   technologies: {
-    section: string;
-    skills: string[];
+    key: string;
+    section: {
+      en: string;
+      pt: string;
+    };
+    skills:
+      | string[]
+      | {
+          en: string;
+          pt: string;
+        };
+    hidden: boolean;
   }[];
   education: {
-    school: string;
-    degree: string;
-    date: string;
+    key: string;
+    school: {
+      en: string;
+      pt: string;
+    };
+    degree: {
+      en: string;
+      pt: string;
+    };
+    average?: {
+      en: string;
+      pt: string;
+    };
+    gpa?: {
+      en: string;
+      pt: string;
+    };
+    date:
+      | {
+          en: string;
+          pt: string;
+        }
+      | string;
+    hidden: boolean;
   }[];
   experience: {
-    company: string;
-    position: string;
-    date: string;
-    description: string;
+    key: string;
+    company: {
+      en: string;
+      pt: string;
+    };
+    position: {
+      en: string;
+      pt: string;
+    };
+    date:
+      | {
+          en: string;
+          pt: string;
+        }
+      | string;
+    description: {
+      en: string[];
+      pt: string[];
+    };
+    hidden: boolean;
   }[];
   projects: {
-    title: string;
-    description: string;
+    key: string;
+    title:
+      | {
+          en: string;
+          pt: string;
+        }
+      | string;
+    description: {
+      en: string;
+      pt: string;
+    };
     url: string;
     hidden: boolean;
   }[];
   interests: {
-    section: string;
-    items: string[];
+    key: string;
+    section: {
+      en: string;
+      pt: string;
+    };
+    items:
+      | string[]
+      | {
+          en: string[];
+          pt: string[];
+        };
+    hidden: boolean;
   }[];
+  academicLife: {
+    projects: {
+      key: string;
+      title: {
+        en: string;
+        pt: string;
+      };
+      description: {
+        en: string;
+        pt: string;
+      };
+      url?: string;
+      hidden: boolean;
+    }[];
+    extension: {
+      key: string;
+      title: {
+        en: string;
+        pt: string;
+      };
+      description: {
+        en: string;
+        pt: string;
+      };
+      date: string;
+      institution: {
+        en: string;
+        pt: string;
+      };
+      hidden: boolean;
+    }[];
+    organizations: {
+      key: string;
+      name: {
+        en: string;
+        pt: string;
+      };
+      position: {
+        en: string;
+        pt: string;
+      };
+      date: string;
+      description: {
+        en: string;
+        pt: string;
+      };
+      hidden: boolean;
+    }[];
+    events: {
+      key: string;
+      title: {
+        en: string;
+        pt: string;
+      };
+      description: {
+        en: string;
+        pt: string;
+      };
+      date: string;
+      institution: {
+        en: string;
+        pt: string;
+      };
+      hidden: boolean;
+    }[];
+    speeches: {
+      key: string;
+      title: {
+        en: string;
+        pt: string;
+      };
+      description: {
+        en: string;
+        pt: string;
+      };
+      date: string;
+      institution: {
+        en: string;
+        pt: string;
+      };
+      hidden: boolean;
+    }[];
+    competitions: {
+      key: string;
+    }[];
+    publications: {
+      key: string;
+    }[];
+  };
+
   resumeUrl: string;
 }

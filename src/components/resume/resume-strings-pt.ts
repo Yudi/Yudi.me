@@ -1,0 +1,18 @@
+export const resumeStringsPt = {
+  title: "Currículo",
+  print: "Imprimir",
+  description: "Clique em qualquer seção ou linha para ocultar informações antes de imprimir.",
+  technologies: "Tecnologias e frameworks",
+  education: "Educação",
+  workExperience: "Experiência profissional",
+  projects: "Projetos",
+  interests: "Interesses",
+  academicLife: "Vida acadêmica",
+  extension: "Extensão",
+  organizations: "Organizações",
+  events: "Eventos",
+  speeches: "Palestras",
+  competitions: "Competições",
+  publications: "Publicações",
+  fullVersion: "Versão completa em",
+};

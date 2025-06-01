@@ -1,5 +1,7 @@
 ---
-import { resumeDataEn } from "../../components/resume/resume-data";
+import { resumeData as data } from "../../components/resume/resume-data";
+import { resumeStringsEn as str } from "../../components/resume/resume-strings-en";
+import ResumeLayout from "../../layouts/ResumeLayout.astro";
 ---
 
-{resumeDataEn}
+<ResumeLayout data={data} str={str} language={Astro.currentLocale as string} />
