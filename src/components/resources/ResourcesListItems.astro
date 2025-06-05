@@ -61,20 +61,24 @@ function getUrl(item: Item) {
       </a>
       {item.date && (
         <p>
-          <Calendar class="inline mr-1" />
+          <Calendar class="mr-1 inline" />
           <span>{formatDate(item.date, currentLocale, "PPP")}</span>
         </p>
       )}
       {item.languages && (
         <p>
-          <Languages class="inline mr-1" />
+          <Languages class="mr-1 inline" />
           {sortLangs(item.languages).map((lang, index) => (
             <>
               {item.languages!.length === 1 ? (
                 <span>{parseLang(lang)}</span>
               ) : (
                 <a
-                  href={lang === "en" ? `/${item.url.href}` : getRelativeLocaleUrl(lang, item.url.href)}
+                  href={
+                    lang === "en"
+                      ? `/${item.url.href}`
+                      : getRelativeLocaleUrl(lang, item.url.href)
+                  }
                   class="hover:underline"
                 >
                   {parseLang(lang)}

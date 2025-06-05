@@ -1,4 +1,16 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans:
+    "Inter", "system-ui", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  --font-serif:
+    "Merriweather", "ui-serif", "Georgia", "Times New Roman", "serif";
+  --font-mono:
+    "Source Code Pro", "JetBrains Mono", "ui-monospace", "Courier New",
+    "monospace";
+}
+
 @plugin "daisyui" {
   themes:
     light --default,
