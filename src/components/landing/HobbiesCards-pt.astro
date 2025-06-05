@@ -16,47 +16,56 @@ const hobbies = [
   {
     icon: Laptop2,
     title: "Administrador de sistemas",
-    description: "Manter servidores e redes com foco em disponibilidade, privacidade e desempenho.",
+    description:
+      "Manter servidores e redes com foco em disponibilidade, privacidade e desempenho.",
   },
   {
     icon: Wrench,
     title: "Consultor de TI",
-    description: "Fornecer orientação, suporte e soluções personalizadas de hardware e software.",
+    description:
+      "Fornecer orientação, suporte e soluções personalizadas de hardware e software.",
   },
   {
     icon: PenLine,
     title: "Redator técnico",
-    description: "Criar documentação clara e concisa para melhorar a usabilidade de sistemas e softwares.",
+    description:
+      "Criar documentação clara e concisa para melhorar a usabilidade de sistemas e softwares.",
   },
   {
     icon: Languages,
     title: "Tradutor e revisor",
-    description: "Adaptar conteúdos entre idiomas, mantendo clareza e consistência.",
+    description:
+      "Adaptar conteúdos entre idiomas, mantendo clareza e consistência.",
   },
   {
     icon: Palette,
     title: "Designer gráfico e modelador 3D",
-    description: "Projetar interfaces, identidades visuais e explorar expressão criativa por meio de projetos 3D.",
+    description:
+      "Projetar interfaces, identidades visuais e explorar expressão criativa por meio de projetos 3D.",
   },
   {
     icon: Video,
     title: "Editor de vídeo",
-    description: "Editar conteúdos multimídia para fins criativos, informativos e educacionais.",
+    description:
+      "Editar conteúdos multimídia para fins criativos, informativos e educacionais.",
   },
   {
     icon: MapPin,
     title: "Contribuidor de mapas",
-    description: "Editar mapas e fornecer feedback para melhorar dados de localização e ferramentas de navegação.",
+    description:
+      "Editar mapas e fornecer feedback para melhorar dados de localização e ferramentas de navegação.",
   },
   {
     icon: Utensils,
     title: "Blogueiro de gastronomia",
-    description: "Escrever e compartilhar experiências culinárias, avaliações e visões sobre a cultura gastronômica.",
+    description:
+      "Escrever e compartilhar experiências culinárias, avaliações e visões sobre a cultura gastronômica.",
   },
   {
     icon: BookOpenCheck,
     title: "Entusiasta de direito e história",
-    description: "Explorar leis e preservar contextos históricos para compartilhar conhecimento.",
+    description:
+      "Explorar leis e preservar contextos históricos para compartilhar conhecimento.",
   },
   {
     icon: Gamepad2,
@@ -66,14 +75,14 @@ const hobbies = [
 ];
 ---
 
-<section class="py-10 max-w-6xl mx-auto">
-  <h2 class="text-3xl mb-8">Hobbies</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<section class="mx-auto max-w-6xl py-10">
+  <h2 class="mb-8 text-3xl">Hobbies</h2>
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
     {
       hobbies.map(({ icon: Icon, title, description }) => (
-        <div class="card bg-base-100 shadow-md hover:shadow-xl dark:hover:shadow-none transition dark:shadow-none dark:bg-gray-800">
+        <div class="card bg-base-100 shadow-md transition hover:shadow-xl dark:bg-gray-800 dark:shadow-none dark:hover:shadow-none">
           <div class="card-body">
-            <Icon class="w-6 h-6 text-primary" aria-hidden="true" />
+            <Icon class="text-primary h-6 w-6" aria-hidden="true" />
             <h3 class="card-title mt-2">{title}</h3>
             <p class="text-sm">{description}</p>
           </div>
