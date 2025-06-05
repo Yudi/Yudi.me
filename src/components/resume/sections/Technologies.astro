@@ -1,0 +1,29 @@
+---
+import Hideable from "../Hideable.svelte";
+import type { ResumeStrings } from "../resume-strings.interface";
+import type { Resume as ResumeData, SafeLanguage } from "../resume.interface";
+
+interface Props {
+  str: ResumeStrings;
+  technologies: ResumeData["technologies"];
+  safeLanguage: SafeLanguage;
+}
+
+const { str, technologies, safeLanguage } = Astro.props;
+---
+
+<section>
+  <Hideable client:load>
+    <h2 class="text-2xl font-semibold">{str.technologies}</h2>
+    {
+      technologies.map((tech) => (
+        <Hideable client:load>
+          <div class="mb-2 flex flex-col items-center justify-left sm:flex-row">
+            <span class="mr-2 text-sm font-semibold">{tech.section[safeLanguage]}</span>
+            <span class="text-xs">{tech.skills}</span>
+          </div>
+        </Hideable>
+      ))
+    }
+  </Hideable>
+</section>

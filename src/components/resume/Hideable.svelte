@@ -8,20 +8,38 @@
 
   let { hide = $bindable(false), children }: Props = $props();
 
-  const toggleHide = () => (hide = !hide);
+  const toggleHide = () => {
+    hide = !hide;
+    console.debug("Toggle hide state:", hide);
+  };
 </script>
 
-<div class="group relative" class:screen-only={hide} class:text-gray-300={hide} role="button">
-  <!-- svelte-ignore a11y_click_events_have_key_events -->
-  <!-- svelte-ignore a11y_no_static_element_interactions -->
-  <span
-    onclick={(e) => {
-      e.stopPropagation();
+<div
+  role="button"
+  tabindex="0"
+  onclick={(e) => {
+    toggleHide();
+    e.stopPropagation();
+  }}
+  onkeypress={(e) => {
+    if (e.key === "Enter" || e.key === " ") {
       toggleHide();
-    }}
-    class="cursor-pointer select-none"
-    class:cursor-copy={hide}
-  >
-    {@render children()}
-  </span>
+      e.stopPropagation();
+    }
+  }}
+  class="cursor-pointer"
+  class:cursor-copy={hide}
+  class:hide
+>
+  {@render children()}
 </div>
+
+<style>
+  .hide {
+    @media print {
+      display: none;
+    }
+
+    color: gray;
+  }
+</style>

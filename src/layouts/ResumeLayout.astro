@@ -1,8 +1,11 @@
 ---
 import "../styles/global.css";
 import CommonHead from "../components/shared/CommonHead.astro";
-import type { Resume as ResumeData } from "../components/resume/resume.interface";
+import type { Resume as ResumeData, SafeLanguage } from "../components/resume/resume.interface";
 import type { ResumeStrings } from "../components/resume/resume-strings.interface";
+
+import ContactInfo from "../components/resume/sections/Contact-Info.astro";
+import Technologies from "../components/resume/sections/Technologies.astro";
 
 interface Props {
   data: ResumeData;
@@ -12,7 +15,7 @@ interface Props {
 
 const { data, str, language } = Astro.props;
 
-const safeLanguage = ["en", "pt-br"].includes(language) ? (language as "en" | "pt") : "en";
+const safeLanguage = language.replace(/-.+$/, "") as SafeLanguage;
 ---
 
 <html lang={language}>
@@ -23,39 +26,12 @@ const safeLanguage = ["en", "pt-br"].includes(language) ? (language as "en" | "p
       <p class="text-sm">{str.description}</p>
       <p>[{str.home}] [{str.print}]</p>
     </header>
-    <main class="m-0 max-w-(--breakpoint-xl) p-4 text-center md:m-8 xl:mx-auto">
-      <section>
-        <h2
-          class="order-first flex-none p-4 text-center text-4xl sm:order-none sm:text-2xl md:text-3xl lg:text-6xl print:order-none print:pt-0 print:text-[1.7rem]"
-        >
-          {data.intro.name}
-        </h2>
-        <div class="flex flex-col flex-wrap text-sm sm:flex-row sm:text-base print:flex-row">
-          <div class="w-48 flex-1 text-left sm:py-4">
-            <p class="mb-2"><a href="mailto:{email}">{data.intro.email}</a></p>
-            <p class="mb-2">{data.intro.location[safeLanguage]}</p>
-          </div>
 
-          <div class="w-48 flex-1 text-left text-sm sm:py-4 sm:text-right sm:text-base print:text-right">
-            <p class="mb-2">
-              <a href=`https://github.com/${data.intro.github}` target="_blank" rel="noreferrer">
-                github.com/{data.intro.github}
-              </a>
-            </p>
-            <p class="mb-2">
-              <a href=`https://linkedin.com/in/${data.intro.linkedin}` target="_blank" rel="noreferrer">
-                linkedin.com/in/{data.intro.linkedin}
-              </a>
-            </p>
-            <p class="mb-2">
-              <a href=`https://${data.intro.website}` target="_blank" rel="noreferrer">
-                {data.intro.website.replace(/^(https?:\/\/)?(www\.)?/, "")}
-              </a>
-            </p>
-          </div>
-        </div>
-      </section>
+    <main class="m-0 max-w-(--breakpoint-xl) p-4 md:m-8 xl:mx-auto">
+      <ContactInfo intro={data.intro} safeLanguage={safeLanguage} />
+      <Technologies str={str} technologies={data.technologies} safeLanguage={safeLanguage} />
     </main>
+
     <footer class="print-only">
       <p class="text-center text-sm">
         {str.fullVersion}:
@@ -82,7 +58,7 @@ const safeLanguage = ["en", "pt-br"].includes(language) ? (language as "en" | "p
           display: none;
         }
 
-        text-color: gray;
+        color: gray;
       }
 
       .print-only {

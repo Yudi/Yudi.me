@@ -1,3 +1,4 @@
+export type SafeLanguage = "en" | "pt";
 export interface Resume {
   intro: {
     name: string;

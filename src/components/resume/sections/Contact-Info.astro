@@ -1,0 +1,42 @@
+---
+import type { SafeLanguage, Resume as ResumeData } from "../resume.interface";
+
+interface Props {
+  intro: ResumeData["intro"];
+  safeLanguage: SafeLanguage;
+}
+
+const { intro, safeLanguage } = Astro.props;
+---
+
+<section>
+  <h2
+    class="order-first flex-none p-4 text-center text-4xl sm:order-none sm:text-2xl md:text-3xl lg:text-6xl print:order-none print:pt-0 print:text-[1.7rem]"
+  >
+    {intro.name}
+  </h2>
+  <div class="flex flex-col flex-wrap text-sm sm:flex-row sm:text-base print:flex-row">
+    <div class="w-48 flex-1 text-left sm:py-4">
+      <p class="mb-2"><a href="mailto:{email}">{intro.email}</a></p>
+      <p class="mb-2">{intro.location[safeLanguage]}</p>
+    </div>
+
+    <div class="w-48 flex-1 text-left text-sm sm:py-4 sm:text-right sm:text-base print:text-right">
+      <p class="mb-2">
+        <a href=`https://github.com/${intro.github}` target="_blank" rel="noreferrer">
+          github.com/{intro.github}
+        </a>
+      </p>
+      <p class="mb-2">
+        <a href=`https://linkedin.com/in/${intro.linkedin}` target="_blank" rel="noreferrer">
+          linkedin.com/in/{intro.linkedin}
+        </a>
+      </p>
+      <p class="mb-2">
+        <a href=`https://${intro.website.replace(/^(https?:\/\/)?(www\.)?/, "")}` target="_blank" rel="noreferrer">
+          {intro.website.replace(/^(https?:\/\/)?(www\.)?/, "")}
+        </a>
+      </p>
+    </div>
+  </div>
+</section>

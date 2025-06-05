@@ -1,5 +1,5 @@
 export const resumeStringsEn = {
-  title: "Resumé",
+  title: "Résumé",
   home: "Home",
   print: "Print",
   description: "Click on any sections or lines to hide information before printing.",
