@@ -20,33 +20,21 @@ const { str, projects, safeLanguage } = Astro.props;
       {
         projects.map((proj) => (
           <Hideable client:load hide={proj.hidden}>
-            <li class="mb-2">
+            <li class="mb-2 flex flex-wrap items-baseline gap-x-1">
               {() => {
                 if (typeof proj.title === "string") {
-                  return (
-                    <span class="font-semibold print:text-sm">
-                      {proj.title}{" "}
-                    </span>
-                  );
+                  return <span class="font-semibold print:text-sm">{proj.title} </span>;
                 } else if (typeof proj.title === "object") {
-                  return (
-                    <span class="font-semibold print:text-sm">
-                      {proj.title[safeLanguage]}{" "}
-                    </span>
-                  );
+                  return <span class="font-semibold print:text-sm">{proj.title[safeLanguage]} </span>;
                 } else {
                   return null;
                 }
               }}
 
-              <span class="mr-2 print:text-xs">
-                - {proj.description[safeLanguage]}
-              </span>
-              <span class="font-bold print:text-xs">
-                {proj.url
-                  .replace(/^(https?:\/\/)?(www\.)?/, "")
-                  .replace(/\/$/, "")}
-              </span>
+              <span class="print:text-xs">- {proj.description[safeLanguage]}</span>
+              <a class="font-bold print:text-xs" href={proj.url} target="_blank" rel="noopener noreferrer">
+                {proj.url.replace(/^(https?:\/\/)?(www\.)?/, "").replace(/\/$/, "")}
+              </a>
             </li>
           </Hideable>
         ))

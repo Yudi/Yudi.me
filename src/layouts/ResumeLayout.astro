@@ -1,10 +1,7 @@
 ---
 import "../styles/global.css";
 import CommonHead from "../components/shared/CommonHead.astro";
-import type {
-  ResumeData,
-  SafeLanguage,
-} from "../components/resume/resume.interface";
+import type { ResumeData, SafeLanguage } from "../components/resume/resume.interface";
 import type { ResumeStrings } from "../components/resume/resume-strings.interface";
 
 import ContactInfo from "../components/resume/sections/Contact-Info.astro";
@@ -27,38 +24,18 @@ const safeLanguage = language.replace(/-.+$/, "") as SafeLanguage;
 <html lang={language}>
   <CommonHead title={str.title} description="hello" lang={language} />
   <body class="mx-auto min-h-screen">
-    <header
-      class="screen-only w-screen bg-[#03C1FF] p-4 text-center text-black sm:p-6"
-    >
+    <header class="screen-only w-screen bg-[#03C1FF] p-4 text-center text-black sm:p-6">
       <h1 class="text-2xl font-semibold">{str.title}</h1>
       <p class="text-sm">{str.description}</p>
       <p>[{str.home}] [{str.print}]</p>
     </header>
 
-    <main
-      class="m-0 max-w-(--breakpoint-xl) p-4 md:m-8 xl:mx-auto print:max-w-full"
-    >
+    <main class="m-0 max-w-(--breakpoint-xl) p-4 md:m-8 xl:mx-auto print:max-w-full">
       <ContactInfo intro={data.intro} safeLanguage={safeLanguage} />
-      <Technologies
-        str={str}
-        technologies={data.technologies}
-        safeLanguage={safeLanguage}
-      />
-      <Education
-        str={str}
-        education={data.education}
-        safeLanguage={safeLanguage}
-      />
-      <Experience
-        str={str}
-        experience={data.experience}
-        safeLanguage={safeLanguage}
-      />
-      <Projects
-        str={str}
-        projects={data.projects}
-        safeLanguage={safeLanguage}
-      />
+      <Technologies str={str} technologies={data.technologies} safeLanguage={safeLanguage} />
+      <Education str={str} education={data.education} safeLanguage={safeLanguage} />
+      <Experience str={str} experience={data.experience} safeLanguage={safeLanguage} />
+      <Projects str={str} projects={data.projects} safeLanguage={safeLanguage} />
     </main>
 
     <footer class="print-only">
@@ -66,11 +43,7 @@ const safeLanguage = language.replace(/-.+$/, "") as SafeLanguage;
         {str.fullVersion}:
         <a href={data.resumeUrl} target="_blank" rel="noopener noreferrer">
           <!-- Formats the `resumeUrl` by removing the protocol (http/https), "www." prefix, and trailing slash. -->
-          {
-            data.resumeUrl
-              .replace(/^(https?:\/\/)?(www\.)?/, "")
-              .replace(/\/$/, "")
-          }
+          {data.resumeUrl.replace(/^(https?:\/\/)?(www\.)?/, "").replace(/\/$/, "")}
         </a>
       </p>
     </footer>
