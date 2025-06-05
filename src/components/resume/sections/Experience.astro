@@ -20,7 +20,7 @@ const { str, experience, safeLanguage } = Astro.props;
       {
         experience.map((exp) => (
           <Hideable client:load hide={exp.hidden}>
-            <div class="flex font-bold mb-2 print:mb-1 print:text-sm">
+            <div class="mb-2 flex font-bold print:mb-1 print:text-sm">
               <div class="flex-1 text-left">{exp.position[safeLanguage]}</div>
               <div class="flex-2 text-center">
                 <a href={exp.url} target="_blank" rel="noreferrer">
@@ -32,7 +32,7 @@ const { str, experience, safeLanguage } = Astro.props;
             <ul class="list-disc">
               {exp.description[safeLanguage].map((desc) => (
                 <Hideable client:load>
-                  <li class="ml-8 mb-2 print:text-sm">{desc}</li>
+                  <li class="mb-2 ml-8 print:text-sm">{desc}</li>
                 </Hideable>
               ))}
             </ul>

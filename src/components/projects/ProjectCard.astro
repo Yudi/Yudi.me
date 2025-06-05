@@ -13,13 +13,19 @@ const { image, size, title, href, subtitle, toptitle } = Astro.props;
 
 <a
   {href}
-  class="duration-250 card-component grid rounded-2xl transition-all hover:scale-105 cursor-pointer"
+  class="card-component grid cursor-pointer rounded-2xl transition-all duration-250 hover:scale-105"
   style=`--size: ${size}`
   tabindex="0"
 >
-  <img src={image} alt="" class="col-start-1 row-start-1 h-full w-full rounded-2xl object-cover" />
+  <img
+    src={image}
+    alt=""
+    class="col-start-1 row-start-1 h-full w-full rounded-2xl object-cover"
+  />
 
-  <div class="gradient col-start-1 row-start-1 flex flex-col items-start justify-end rounded-2xl p-4 text-white">
+  <div
+    class="gradient col-start-1 row-start-1 flex flex-col items-start justify-end rounded-2xl p-4 text-white"
+  >
     {toptitle ? <h2 class="mb-1 text-sm">{toptitle}</h2> : null}
 
     <h1 class="text-2xl font-bold">{title}</h1>
@@ -32,6 +38,10 @@ const { image, size, title, href, subtitle, toptitle } = Astro.props;
     grid-column: span var(--size, 1); /* Default to span 1 if --size is undefined */
   }
   .gradient {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 50%);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0) 50%
+    );
   }
 </style>

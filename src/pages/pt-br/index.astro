@@ -10,7 +10,9 @@ import Landing from "../../components/landing/Landing-pt.astro";
 <script>
   const userLocale = navigator.language || navigator.languages?.[0];
 
-  const languageSelectorTouched = localStorage.getItem("languageSelectorTouched");
+  const languageSelectorTouched = localStorage.getItem(
+    "languageSelectorTouched",
+  );
   if (!languageSelectorTouched) {
     if (userLocale?.match(/^pt(-[A-Za-z]{2})?$/)) {
       window.location.href = "/pt-br";

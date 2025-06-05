@@ -6,6 +6,8 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<h2 class="text-2xl font-semibold print:text-sm print:uppercase print:border-b mb-2 border-gray-400">
+<h2
+  class="mb-2 border-gray-400 text-2xl font-semibold print:border-b print:text-sm print:uppercase"
+>
   {title}
 </h2>

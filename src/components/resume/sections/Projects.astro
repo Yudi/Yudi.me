@@ -16,24 +16,36 @@ const { str, projects, safeLanguage } = Astro.props;
 <section>
   <Hideable client:load>
     <SectionTitle title={str.projects} />
-    <ul class="mb-2 list-disc ml-8">
+    <ul class="mb-2 ml-8 list-disc">
       {
         projects.map((proj) => (
           <Hideable client:load hide={proj.hidden}>
             <li class="mb-2">
               {() => {
                 if (typeof proj.title === "string") {
-                  return <span class="print:text-sm font-semibold">{proj.title} </span>;
+                  return (
+                    <span class="font-semibold print:text-sm">
+                      {proj.title}{" "}
+                    </span>
+                  );
                 } else if (typeof proj.title === "object") {
-                  return <span class="print:text-sm font-semibold">{proj.title[safeLanguage]} </span>;
+                  return (
+                    <span class="font-semibold print:text-sm">
+                      {proj.title[safeLanguage]}{" "}
+                    </span>
+                  );
                 } else {
                   return null;
                 }
               }}
 
-              <span class="mr-2 print:text-xs">- {proj.description[safeLanguage]}</span>
+              <span class="mr-2 print:text-xs">
+                - {proj.description[safeLanguage]}
+              </span>
               <span class="font-bold print:text-xs">
-                {proj.url.replace(/^(https?:\/\/)?(www\.)?/, "").replace(/\/$/, "")}
+                {proj.url
+                  .replace(/^(https?:\/\/)?(www\.)?/, "")
+                  .replace(/\/$/, "")}
               </span>
             </li>
           </Hideable>

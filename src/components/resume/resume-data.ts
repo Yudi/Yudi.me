@@ -107,7 +107,9 @@ export const resumeData: ResumeData = {
       },
       date: "2022",
       description: {
-        en: ["Proctored several exams. Ensured fairness and security during the exams."],
+        en: [
+          "Proctored several exams. Ensured fairness and security during the exams.",
+        ],
         pt: [
           "Assegurei a lisura e segurança durante provas e concursos, como o vestibular da Unesp, o SARESP e ingresso para as Polícias Civil e Militar.",
         ],

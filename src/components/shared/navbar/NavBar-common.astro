@@ -50,7 +50,9 @@ export type Items = ItemWithUrl | ItemWithChildren;
             <>
               {item.children ? (
                 <li tabindex="0">
-                  <span class="h-12 justify-between pt-3.5 menu-title">{item.name}</span>
+                  <span class="menu-title h-12 justify-between pt-3.5">
+                    {item.name}
+                  </span>
                   <ul class="p-2">
                     {item.children.map((child) => (
                       <li>
@@ -137,7 +139,8 @@ export type Items = ItemWithUrl | ItemWithChildren;
             <a
               class="language-selector"
               href={getRelativeLocaleUrl("en", currentPathWithoutLocale)}
-              >English</a>
+              >English</a
+            >
           </li>
           <li>
             <a

@@ -20,8 +20,10 @@ const { str, technologies, safeLanguage } = Astro.props;
       {
         technologies.map((tech) => (
           <Hideable client:load hide={tech.hidden}>
-            <li class="ml-4 mb-2 ">
-              <span class="mr-2 print:text-sm font-semibold">{tech.section[safeLanguage]}:</span>
+            <li class="mb-2 ml-4">
+              <span class="mr-2 font-semibold print:text-sm">
+                {tech.section[safeLanguage]}:
+              </span>
               <span class="print:text-sm">
                 {(() => {
                   if (typeof tech.skills === "string") {
