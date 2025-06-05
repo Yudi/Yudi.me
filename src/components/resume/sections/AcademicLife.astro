@@ -1,0 +1,130 @@
+---
+import Hideable from "../Hideable.svelte";
+import type { ResumeStrings } from "../resume-strings.interface";
+import type { ResumeData, SafeLanguage } from "../resume.interface";
+import SectionTitle from "../shared/SectionTitle.astro";
+
+interface Props {
+  str: ResumeStrings;
+  academicLife: ResumeData["academicLife"];
+  safeLanguage: SafeLanguage;
+}
+
+const { str, academicLife, safeLanguage } = Astro.props;
+---
+
+<section>
+  <Hideable client:load hide={academicLife.hidden}>
+    <SectionTitle title={str.academicLife} />
+    <h3 class="text-xl font-semibold print:text-sm print:uppercase">{str.projects}</h3>
+    {
+      academicLife.projects.map((proj) => (
+        <Hideable client:load hide={proj.hidden}>
+          <li class="mb-2 ml-8 print:mb-1">
+            {() => {
+              if (typeof proj.title === "string") {
+                return <span class="font-semibold print:text-sm">{proj.title} </span>;
+              } else if (typeof proj.title === "object") {
+                return <span class="font-semibold print:text-sm">{proj.title[safeLanguage]} </span>;
+              } else {
+                return null;
+              }
+            }}
+
+            <span class="print:text-xs">- {proj.description[safeLanguage]}</span>
+            <a class="font-bold print:text-xs" href={proj.url} target="_blank" rel="noopener noreferrer">
+              {(proj.url && proj.url.replace(/^(https?:\/\/)?(www\.)?/, "").replace(/\/$/, "")) || null}
+            </a>
+          </li>
+        </Hideable>
+      ))
+    }
+    <h3 class="text-xl font-semibold print:text-sm print:uppercase">{str.extension}</h3>
+    {
+      academicLife.extension.map((proj) => (
+        <Hideable client:load hide={proj.hidden}>
+          <li class="mb-2 ml-8 print:mb-1">
+            {() => {
+              if (typeof proj.title === "string") {
+                return <span class="font-semibold print:text-sm">{proj.title} </span>;
+              } else if (typeof proj.title === "object") {
+                return <span class="font-semibold print:text-sm">{proj.title[safeLanguage]} </span>;
+              } else {
+                return null;
+              }
+            }}
+            <span class="print:text-xs">
+              - {proj.description[safeLanguage].replace(/\.$/, "")} - {proj.institution[safeLanguage]}, {proj.date}
+            </span>
+          </li>
+        </Hideable>
+      ))
+    }
+    <h3 class="text-xl font-semibold print:text-sm print:uppercase">{str.organizations}</h3>
+    {
+      academicLife.organizations.map((proj) => (
+        <Hideable client:load hide={proj.hidden}>
+          <li class="mb-2 ml-8 print:mb-1">
+            {() => {
+              if (typeof proj.name === "string") {
+                return <span class="font-semibold print:text-sm">{proj.name} </span>;
+              } else if (typeof proj.name === "object") {
+                return <span class="font-semibold print:text-sm">{proj.name[safeLanguage]} </span>;
+              } else {
+                return null;
+              }
+            }}
+            <span class="print:text-xs">
+              - {proj.position[safeLanguage]} - {proj.description[safeLanguage].replace(/\.$/, "")} -{" "}
+              {proj.institution[safeLanguage]}, {proj.date}
+            </span>
+          </li>
+        </Hideable>
+      ))
+    }
+    <h3 class="text-xl font-semibold print:text-sm print:uppercase">{str.events}</h3>
+    {
+      academicLife.events.map((proj) => (
+        <Hideable client:load hide={proj.hidden}>
+          <li class="mb-2 ml-8 print:mb-1">
+            {() => {
+              if (typeof proj.title === "string") {
+                return <span class="font-semibold print:text-sm">{proj.title} </span>;
+              } else if (typeof proj.title === "object") {
+                return <span class="font-semibold print:text-sm">{proj.title[safeLanguage]} </span>;
+              } else {
+                return null;
+              }
+            }}
+            <span class="print:text -xs">
+              - {proj.description[safeLanguage].replace(/\.$/, "")} - {proj.institution[safeLanguage]}, {proj.date}
+            </span>
+          </li>
+        </Hideable>
+      ))
+    }
+    <h3 class="text-xl font-semibold print:text-sm print:uppercase">{str.speeches}</h3>
+    {
+      academicLife.speeches.map((proj) => (
+        <Hideable client:load hide={proj.hidden}>
+          <li class="mb-2 ml-8 print:mb-1">
+            {() => {
+              if (typeof proj.title === "string") {
+                return <span class="font-semibold print:text-sm">{proj.title} </span>;
+              } else if (typeof proj.title === "object") {
+                return <span class="font-semibold print:text-sm">{proj.title[safeLanguage]} </span>;
+              } else {
+                return null;
+              }
+            }}
+            <span class="print:text -xs">
+              - {proj.description[safeLanguage].replace(/\.$/, "")} - {proj.institution[safeLanguage]}, {proj.date}
+            </span>
+          </li>
+        </Hideable>
+      ))
+    }
+    <!-- <h3 class="text-xl font-semibold print:text-sm print:uppercase">{str.competitions}</h3>
+    <h3 class="text-xl font-semibold print:text-sm print:uppercase">{str.publications}</h3> -->
+  </Hideable>
+</section>

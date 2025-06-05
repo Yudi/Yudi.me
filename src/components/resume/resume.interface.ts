@@ -105,6 +105,7 @@ export interface ResumeData {
     hidden: boolean;
   }[];
   academicLife: {
+    hidden: boolean;
     projects: {
       key: string;
       title: {
@@ -116,6 +117,7 @@ export interface ResumeData {
         pt: string;
       };
       url?: string;
+      date: string;
       hidden: boolean;
     }[];
     extension: {
@@ -147,6 +149,10 @@ export interface ResumeData {
       };
       date: string;
       description: {
+        en: string;
+        pt: string;
+      };
+      institution: {
         en: string;
         pt: string;
       };

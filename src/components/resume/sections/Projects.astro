@@ -13,14 +13,14 @@ interface Props {
 const { str, projects, safeLanguage } = Astro.props;
 ---
 
-<section>
+<section class="print:mb-2">
   <Hideable client:load>
     <SectionTitle title={str.projects} />
-    <ul class="mb-2 ml-8 list-disc">
+    <ul class="ml-4 list-disc">
       {
         projects.map((proj) => (
           <Hideable client:load hide={proj.hidden}>
-            <li class="mb-2 flex flex-wrap items-baseline gap-x-1">
+            <li class="mb-2 flex flex-wrap items-baseline gap-x-1 print:mb-1">
               {() => {
                 if (typeof proj.title === "string") {
                   return <span class="font-semibold print:text-sm">{proj.title} </span>;

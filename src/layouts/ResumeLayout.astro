@@ -9,6 +9,9 @@ import Technologies from "../components/resume/sections/Technologies.astro";
 import Education from "../components/resume/sections/Education.astro";
 import Experience from "../components/resume/sections/Experience.astro";
 import Projects from "../components/resume/sections/Projects.astro";
+import Interests from "../components/resume/sections/Interests.astro";
+import AcademicLife from "../components/resume/sections/AcademicLife.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 interface Props {
   data: ResumeData;
@@ -22,12 +25,19 @@ const safeLanguage = language.replace(/-.+$/, "") as SafeLanguage;
 ---
 
 <html lang={language}>
-  <CommonHead title={str.title} description="hello" lang={language} />
-  <body class="mx-auto min-h-screen">
-    <header class="screen-only w-screen bg-[#03C1FF] p-4 text-center text-black sm:p-6">
+  <CommonHead title={str.title} lang={language} />
+  <body class="mx-auto">
+    <header class="screen-only w-full bg-gray-700 p-4 text-center text-white sm:p-6">
       <h1 class="text-2xl font-semibold">{str.title}</h1>
       <p class="text-sm">{str.description}</p>
-      <p>[{str.home}] [{str.print}]</p>
+      <p>
+        [<a href={getRelativeLocaleUrl(language, "/")}>{str.home}</a>] [<span
+          id="print"
+          role="button"
+          class="cursor-pointer underline">{str.print}</span
+        >]
+      </p>
+      <p>[<a href="/resume">English</a>] [<a href="/pt-br/resume">Português</a>]</p>
     </header>
 
     <main class="m-0 max-w-(--breakpoint-xl) p-4 md:m-8 xl:mx-auto print:max-w-full">
@@ -36,13 +46,14 @@ const safeLanguage = language.replace(/-.+$/, "") as SafeLanguage;
       <Education str={str} education={data.education} safeLanguage={safeLanguage} />
       <Experience str={str} experience={data.experience} safeLanguage={safeLanguage} />
       <Projects str={str} projects={data.projects} safeLanguage={safeLanguage} />
+      <Interests str={str} interests={data.interests} safeLanguage={safeLanguage} />
+      <AcademicLife str={str} academicLife={data.academicLife} safeLanguage={safeLanguage} />
     </main>
 
     <footer class="print-only">
       <p class="text-center text-sm">
         {str.fullVersion}:
         <a href={data.resumeUrl} target="_blank" rel="noopener noreferrer">
-          <!-- Formats the `resumeUrl` by removing the protocol (http/https), "www." prefix, and trailing slash. -->
           {data.resumeUrl.replace(/^(https?:\/\/)?(www\.)?/, "").replace(/\/$/, "")}
         </a>
       </p>
@@ -72,13 +83,18 @@ const safeLanguage = language.replace(/-.+$/, "") as SafeLanguage;
           display: block;
         }
 
-        /* @media screen {
+        @media screen {
           display: none;
-        } */
+        }
       }
       a {
         text-decoration: underline;
       }
     </style>
+    <script>
+      document.getElementById("print")?.addEventListener("click", () => {
+        window.print();
+      });
+    </script>
   </body>
 </html>

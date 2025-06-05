@@ -88,7 +88,7 @@ export const resumeData: ResumeData = {
         pt: "9,06/10",
       },
       gpa: {
-        en: "3.62/4.0",
+        en: "3.62",
         pt: "9,04/10",
       },
       hidden: false,
@@ -112,6 +112,7 @@ export const resumeData: ResumeData = {
         ],
         pt: [
           "Assegurei a lisura e segurança durante provas e concursos, como o vestibular da Unesp, o SARESP e ingresso para as Polícias Civil e Militar.",
+          "Cumprimento de processos padronizados.",
         ],
       },
       hidden: false,
@@ -129,7 +130,10 @@ export const resumeData: ResumeData = {
       date: "2022",
       description: {
         en: ["Ensured fairness and security during the exam."],
-        pt: ["Assegurei a lisura e a segurança do vestibular da USP."],
+        pt: [
+          "Assegurei a lisura e a segurança do vestibular da USP.",
+          "Cumprimento de processos padronizados.",
+        ],
       },
       hidden: false,
     },
@@ -194,7 +198,7 @@ export const resumeData: ResumeData = {
       },
       items: {
         en: ["Portuguese (native)", "English (fluent)", "Spanish (basic)"],
-        pt: ["Português (nativo)", "Inglês (fluente)", "Espanhol (básico)"],
+        pt: ["Português", "Inglês (fluente)", "Espanhol (básico)"],
       },
       hidden: false,
     },
@@ -218,6 +222,7 @@ export const resumeData: ResumeData = {
     },
   ],
   academicLife: {
+    hidden: true,
     projects: [
       {
         key: "daqui-pra-la-ciencia",
@@ -229,6 +234,7 @@ export const resumeData: ResumeData = {
           en: "Production of scientific dissemination didactic material for use in teaching.",
           pt: "Produção de material didático de divulgação científica para uso do Núcleo de Ensino",
         },
+        date: "2021",
         url: "https://youtube.com/playlist?list=PLQGXle-q_3AMN2eo59CCSnpq5lKuiX-Qo",
         hidden: true,
       },
@@ -242,6 +248,7 @@ export const resumeData: ResumeData = {
           en: "Video creation for the 17th National Science and Technology Week",
           pt: "Produção de vídeos para a 17ª Semana Nacional de Ciência e Tecnologia",
         },
+        date: "2020",
         url: "https://youtube.com/playlist?list=PLQGXle-q_3ANeWbZBuYQ6gQkM92OwBdZr",
         hidden: true,
       },
@@ -278,8 +285,12 @@ export const resumeData: ResumeData = {
         },
         date: "2021 - 2022",
         description: {
-          en: "I contributed to the organization of events and activities, student representation, promoting discussions on relevant topics for the academic community, and also in the development and execution of various projects.",
+          en: "I contributed to the organization of events and activities, student representation, promoting discussions on relevant topics for the academic community, and also in the development and execution of various projects",
           pt: "Contribuí para a organização de eventos e atividades, representação estudantil, a promoção de discussões sobre temas relevantes para a comunidade acadêmica e, também, na elaboração e execução de projetos diversos",
+        },
+        institution: {
+          en: "Unesp - São Paulo State University",
+          pt: "Unesp - Universidade Estadual Paulista",
         },
         hidden: true,
       },
@@ -395,5 +406,3 @@ export const resumeData: ResumeData = {
   },
   resumeUrl: "https://yudi.me/resume",
 };
-
-export const hashtableKeys = {};

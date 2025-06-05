@@ -13,17 +13,15 @@ interface Props {
 const { str, technologies, safeLanguage } = Astro.props;
 ---
 
-<section>
+<section class="print:mb-2">
   <Hideable client:load>
     <SectionTitle title={str.technologies} />
     <ul>
       {
         technologies.map((tech) => (
           <Hideable client:load hide={tech.hidden}>
-            <li class="mb-2 ml-4">
-              <span class="mr-2 font-semibold print:text-sm">
-                {tech.section[safeLanguage]}:
-              </span>
+            <li class="mb-2 ml-4 flex flex-wrap items-baseline gap-x-1 print:mb-1">
+              <span class="font-semibold print:text-sm">{tech.section[safeLanguage]}:</span>
               <span class="print:text-sm">
                 {(() => {
                   if (typeof tech.skills === "string") {
