@@ -21,16 +21,10 @@ const { str, education, safeLanguage } = Astro.props;
         education.map((edu) => (
           <Hideable client:load hide={edu.hidden}>
             <li class="mb-2 ml-4">
-              <span class="font-semibold print:text-sm">
-                {edu.degree[safeLanguage]},&#32;
-              </span>
-              <span class="mr-2 print:text-xs">
+              <span class="font-semibold print:text-sm/0">{edu.degree[safeLanguage]},&#32;</span>
+              <span class="mr-2 print:text-xs/0">
                 {edu.school[safeLanguage]},{" "}
-                {typeof edu.date === "object" ? (
-                  <>{edu.date[safeLanguage]}</>
-                ) : (
-                  <>{edu.date}</>
-                )}
+                {typeof edu.date === "object" ? <>{edu.date[safeLanguage]}</> : <>{edu.date}</>}
                 {(() => {
                   let displayValue = null;
 
