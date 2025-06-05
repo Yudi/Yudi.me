@@ -1,7 +1,8 @@
 ---
 import Hideable from "../Hideable.svelte";
 import type { ResumeStrings } from "../resume-strings.interface";
-import type { Resume as ResumeData, SafeLanguage } from "../resume.interface";
+import type { ResumeData, SafeLanguage } from "../resume.interface";
+import SectionTitle from "../shared/SectionTitle.astro";
 
 interface Props {
   str: ResumeStrings;
@@ -14,16 +15,37 @@ const { str, technologies, safeLanguage } = Astro.props;
 
 <section>
   <Hideable client:load>
-    <h2 class="text-2xl font-semibold">{str.technologies}</h2>
-    {
-      technologies.map((tech) => (
-        <Hideable client:load>
-          <div class="mb-2 flex flex-col items-center justify-left sm:flex-row">
-            <span class="mr-2 text-sm font-semibold">{tech.section[safeLanguage]}</span>
-            <span class="text-xs">{tech.skills}</span>
-          </div>
-        </Hideable>
-      ))
-    }
+    <SectionTitle title={str.technologies} />
+    <ul>
+      {
+        technologies.map((tech) => (
+          <Hideable client:load hide={tech.hidden}>
+            <li class="ml-4 mb-2 ">
+              <span class="mr-2 print:text-sm font-semibold">{tech.section[safeLanguage]}:</span>
+              <span class="print:text-sm">
+                {(() => {
+                  if (typeof tech.skills === "string") {
+                    return tech.skills;
+                  } else if (Array.isArray(tech.skills)) {
+                    return tech.skills.join(", ");
+                  } else if (typeof tech.skills === "object") {
+                    switch (safeLanguage) {
+                      case "en":
+                        return tech.skills.en;
+                      case "pt":
+                        return tech.skills.pt;
+                      default:
+                        return null;
+                    }
+                  } else {
+                    return null;
+                  }
+                })()}
+              </span>
+            </li>
+          </Hideable>
+        ))
+      }
+    </ul>
   </Hideable>
 </section>

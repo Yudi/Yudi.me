@@ -1,5 +1,5 @@
 export type SafeLanguage = "en" | "pt";
-export interface Resume {
+export interface ResumeData {
   intro: {
     name: string;
     email: string;
@@ -58,6 +58,7 @@ export interface Resume {
       en: string;
       pt: string;
     };
+    url?: string;
     position: {
       en: string;
       pt: string;

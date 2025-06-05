@@ -9,6 +9,8 @@ export interface ResumeStrings {
   projects: string;
   interests: string;
   academicLife: string;
+  gpa: string;
+  average: string;
   extension: string;
   organizations: string;
   events: string;

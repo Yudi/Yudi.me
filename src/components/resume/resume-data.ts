@@ -1,5 +1,5 @@
-import type { Resume } from "./resume.interface";
-export const resumeData: Resume = {
+import type { ResumeData } from "./resume.interface";
+export const resumeData: ResumeData = {
   intro: {
     name: "Renan Yudi Yaguinuma Bersan de Araujo",
     email: "cv@yudi.me",
@@ -29,18 +29,6 @@ export const resumeData: Resume = {
       hidden: false,
     },
     {
-      key: "game-development",
-      section: {
-        en: "Game Development",
-        pt: "Desenvolvimento de jogos",
-      },
-      skills: {
-        en: "Unity and Unreal Engine basics",
-        pt: "Conceitos básicos de Unity e Unreal Engine",
-      },
-      hidden: true,
-    },
-    {
       key: "devops-infra",
       section: {
         en: "DevOps, Cloud and Infrastructure",
@@ -57,6 +45,18 @@ export const resumeData: Resume = {
       },
       skills: ["Git", "Docker", "Regex", "Bash", "Zsh"],
       hidden: false,
+    },
+    {
+      key: "game-development",
+      section: {
+        en: "Game Development",
+        pt: "Desenvolvimento de jogos",
+      },
+      skills: {
+        en: "Unity and Unreal Engine basics",
+        pt: "Conceitos básicos de Unity e Unreal Engine",
+      },
+      hidden: true,
     },
     {
       key: "tech-others",
@@ -140,7 +140,7 @@ export const resumeData: Resume = {
         en: "A web app to help students manage events, and certificate generation and distribution.",
         pt: "Um aplicativo web para ajudar alunos a gerenciar eventos, e geração e distribuição de certificados.",
       },
-      url: "https://yudi.me/projects/fct-app'",
+      url: "https://yudi.me/projects/fct-app",
       hidden: false,
     },
     {
@@ -393,3 +393,5 @@ export const resumeData: Resume = {
   },
   resumeUrl: "https://yudi.me/resume",
 };
+
+export const hashtableKeys = {};

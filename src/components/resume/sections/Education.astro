@@ -1,0 +1,45 @@
+---
+import Hideable from "../Hideable.svelte";
+import type { ResumeStrings } from "../resume-strings.interface";
+import type { ResumeData, SafeLanguage } from "../resume.interface";
+import SectionTitle from "../shared/SectionTitle.astro";
+
+interface Props {
+  str: ResumeStrings;
+  education: ResumeData["education"];
+  safeLanguage: SafeLanguage;
+}
+
+const { str, education, safeLanguage } = Astro.props;
+---
+
+<section>
+  <Hideable client:load>
+    <SectionTitle title={str.education} />
+    <ul class="mb-2">
+      {
+        education.map((edu) => (
+          <Hideable client:load hide={edu.hidden}>
+            <li class="ml-4 mb-2 ">
+              <span class="print:text-sm font-semibold">{edu.degree[safeLanguage]},&#32;</span>
+              <span class="mr-2 print:text-xs">
+                {edu.school[safeLanguage]},{" "}
+                {typeof edu.date === "object" ? <>{edu.date[safeLanguage]}</> : <>{edu.date}</>}
+                {(() => {
+                  let displayValue = null;
+
+                  if (safeLanguage === "pt" && edu.average) {
+                    displayValue = `Média: ${edu.average["pt"]}`;
+                  } else if (safeLanguage === "en" && edu.gpa) {
+                    displayValue = `GPA: ${edu.gpa["en"]}`;
+                  }
+                  return displayValue ? <>({displayValue})</> : null;
+                })()}
+              </span>
+            </li>
+          </Hideable>
+        ))
+      }
+    </ul>
+  </Hideable>
+</section>

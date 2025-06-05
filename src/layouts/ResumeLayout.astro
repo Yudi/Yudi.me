@@ -1,11 +1,14 @@
 ---
 import "../styles/global.css";
 import CommonHead from "../components/shared/CommonHead.astro";
-import type { Resume as ResumeData, SafeLanguage } from "../components/resume/resume.interface";
+import type { ResumeData, SafeLanguage } from "../components/resume/resume.interface";
 import type { ResumeStrings } from "../components/resume/resume-strings.interface";
 
 import ContactInfo from "../components/resume/sections/Contact-Info.astro";
 import Technologies from "../components/resume/sections/Technologies.astro";
+import Education from "../components/resume/sections/Education.astro";
+import Experience from "../components/resume/sections/Experience.astro";
+import Projects from "../components/resume/sections/Projects.astro";
 
 interface Props {
   data: ResumeData;
@@ -27,9 +30,12 @@ const safeLanguage = language.replace(/-.+$/, "") as SafeLanguage;
       <p>[{str.home}] [{str.print}]</p>
     </header>
 
-    <main class="m-0 max-w-(--breakpoint-xl) p-4 md:m-8 xl:mx-auto">
+    <main class="m-0 max-w-(--breakpoint-xl) p-4 md:m-8 xl:mx-auto print:max-w-full">
       <ContactInfo intro={data.intro} safeLanguage={safeLanguage} />
       <Technologies str={str} technologies={data.technologies} safeLanguage={safeLanguage} />
+      <Education str={str} education={data.education} safeLanguage={safeLanguage} />
+      <Experience str={str} experience={data.experience} safeLanguage={safeLanguage} />
+      <Projects str={str} projects={data.projects} safeLanguage={safeLanguage} />
     </main>
 
     <footer class="print-only">
