@@ -2,19 +2,8 @@
 const isProd = import.meta.env.PROD;
 ---
 
-{ isProd && (
-  <script async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-ELMF6V23GD"></script>
-  <script is:inline>
-  // @ts-expect-error
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    // @ts-expect-error
-    dataLayer.push(arguments);
-  }
-  // @ts-expect-error
-  gtag('js', new Date());
-  // @ts-expect-error
-  gtag('config', 'G-ELMF6V23GD');
-</script>
-)
+{
+  isProd && (
+    <script is:inline defer src="https://a.yudi.me/b.js" data-website-id="5bcf2a36-3968-432b-87af-1f18e7d3df08" />
+  )
 }
