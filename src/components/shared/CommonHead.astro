@@ -1,8 +1,6 @@
 ---
 import Analytics from "./Analytics.astro";
-import GlobalStyles from "../../layouts/GlobalStyles.astro";
 const { title, description, lang } = Astro.props;
-
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 interface Props {
@@ -39,6 +37,5 @@ if (!description) {
   <meta property="og:url" content="https://yudi.com.br/" />
   <meta property="og:image" content="https://yudi.com.br/favicon.png" />
   <meta property="og:type" content="website" />
-  <GlobalStyles />
   <Analytics />
 </head>
