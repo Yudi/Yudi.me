@@ -16,7 +16,9 @@ const { title, description } = Astro.props;
   <CommonHead title={title} description={description} lang="en" />
   <body class="mx-auto min-h-screen max-w-5xl">
     <NavBar />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer class="sticky top-[100vh]" />
   </body>
 </html>

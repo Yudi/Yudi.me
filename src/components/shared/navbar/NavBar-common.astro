@@ -11,10 +11,7 @@ interface Props {
 }
 
 const currentPath = Astro.url.pathname;
-const currentPathWithoutLocale = currentPath.replace(
-  /^\/[a-z]{2}-[a-z]{2}/,
-  "",
-);
+const currentPathWithoutLocale = currentPath.replace(/^\/[a-z]{2}-[a-z]{2}/, "");
 
 export interface Items {
   name: string;
@@ -26,17 +23,14 @@ export interface Items {
 }
 ---
 
-<div class="navbar bg-base-100">
+<nav class="navbar bg-base-100">
   <div class="navbar-start">
     <!-- Mobile -->
     <div class="dropdown">
       <label tabindex="0" class="btn btn-ghost lg:hidden">
         <Menu class="h-5 w-5" />
       </label>
-      <ul
-        tabindex="0"
-        class="menu dropdown-content menu-sm rounded-box bg-base-100 mt-3 w-52 p-2 shadow"
-      >
+      <ul tabindex="0" class="menu dropdown-content menu-sm rounded-box bg-base-100 mt-3 w-52 p-2 shadow">
         {
           items.map((item) => (
             <>
@@ -71,21 +65,15 @@ export interface Items {
   <div class="navbar-end lg:hidden">
     <menu>
       <li tabindex="0" class="dropdown dropdown-end">
-        <label tabindex="0" class="btn btn-ghost">
-          <Languages class="h-5 w-5" /></label
-        >
+        <label tabindex="0" class="btn btn-ghost"> <Languages class="h-5 w-5" /></label>
         <ul class="menu dropdown-content rounded-box bg-base-100 p-2 shadow">
           <li>
-            <a
-              class="language-selector h-12 pt-3.5"
-              href={getRelativeLocaleUrl("en", currentPathWithoutLocale)}
+            <a class="language-selector h-12 pt-3.5" href={getRelativeLocaleUrl("en", currentPathWithoutLocale)}
               >English</a
             >
           </li>
           <li>
-            <a
-              class="language-selector h-12 pt-3.5"
-              href={getRelativeLocaleUrl("pt-br", currentPathWithoutLocale)}
+            <a class="language-selector h-12 pt-3.5" href={getRelativeLocaleUrl("pt-br", currentPathWithoutLocale)}
               >Português</a
             >
           </li>
@@ -126,23 +114,16 @@ export interface Items {
         <label tabindex="0"> <Languages class="h-5 w-5" /></label>
         <ul class="menu dropdown-content rounded-box bg-base-100 p-2 shadow">
           <li>
-            <a
-              class="language-selector"
-              href={getRelativeLocaleUrl("en", currentPathWithoutLocale)}
-              >English</a>
+            <a class="language-selector" href={getRelativeLocaleUrl("en", currentPathWithoutLocale)}>English</a>
           </li>
           <li>
-            <a
-              class="language-selector"
-              href={getRelativeLocaleUrl("pt-br", currentPathWithoutLocale)}
-              >Português</a
-            >
+            <a class="language-selector" href={getRelativeLocaleUrl("pt-br", currentPathWithoutLocale)}>Português</a>
           </li>
         </ul>
       </li>
     </menu>
   </div>
-</div>
+</nav>
 
 <script>
   const buttons = document.querySelectorAll(".language-selector");
