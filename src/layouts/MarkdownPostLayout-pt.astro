@@ -10,7 +10,7 @@ const currentLocale = Astro.currentLocale as string;
     <h1 class="text-2xl font-semibold">{frontmatter.title}</h1>
     <p>{formatDate(frontmatter.date, currentLocale, "PPP")}</p>
     <p><em>{frontmatter.description}</em></p>
-    <div class="prose mt-4">
+    <div class="prose mt-4 text-justify">
       <slot />
     </div>
   </section>
