@@ -9,12 +9,11 @@ import Landing from "../../components/landing/Landing-pt.astro";
 </BaseLayoutPt>
 
 <script>
-  const userLocale = Astro.preferredLocale;
-  const languageSelectorTouched = localStorage.getItem(
-    "languageSelectorTouched",
-  );
+  const userLocales = navigator.languages;
+
+  const languageSelectorTouched = localStorage.getItem("languageSelectorTouched");
   if (!languageSelectorTouched) {
-    if (userLocale?.match(/^en(-[A-Za-z]{2})?$/)) {
+    if (userLocales?.some((locale) => /^en(-[A-Za-z]{2})?$/.test(locale))) {
       window.location.href = "/";
     }
   }
