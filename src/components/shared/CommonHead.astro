@@ -3,6 +3,8 @@ import Analytics from "./Analytics.astro";
 const { title, description, lang } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
+import interWoff2 from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
+
 interface Props {
   title?: string | undefined;
   description?: string | undefined;
@@ -37,5 +39,7 @@ if (!description) {
   <meta property="og:url" content="https://yudi.com.br/" />
   <meta property="og:image" content="https://yudi.com.br/favicon.png" />
   <meta property="og:type" content="website" />
+
+  <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin="anonymous" />
   <Analytics />
 </head>
