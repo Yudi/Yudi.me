@@ -1,0 +1,13 @@
+---
+import BaseLayout from "./BaseLayout-pt.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title}>
+  <section class="m-auto max-w-4xl p-4">
+    <h1 class="text-3xl font-semibold">{frontmatter.title}</h1>
+    <div class="prose mt-4 text-justify">
+      <slot />
+    </div>
+  </section>
+</BaseLayout>
