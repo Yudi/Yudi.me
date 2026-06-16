@@ -1,8 +1,12 @@
-import { format, type Locale } from "date-fns";
+import { format, parseISO, type Locale } from "date-fns";
 import { enUS, ptBR } from "date-fns/locale";
 
+function getCalendarDate(date: string | Date) {
+  return (date instanceof Date ? date.toISOString() : date).slice(0, 10);
+}
+
 export function formatDate(
-  date: string,
+  date: string | Date,
   currentLocale: string,
   formatting: string,
 ) {
@@ -17,5 +21,5 @@ export function formatDate(
   }
 
   const locale = locales[currentLocale.toLowerCase()] || enUS;
-  return format(new Date(date), formatting, { locale });
+  return format(parseISO(getCalendarDate(date)), formatting, { locale });
 }
