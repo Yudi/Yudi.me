@@ -75,19 +75,23 @@ const hobbies = [
 ];
 ---
 
-<section class="mx-auto max-w-6xl py-10">
+<section class="py-10">
   <h2 class="mb-8 text-3xl">Hobbies</h2>
-  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  <ul class="list rounded-box bg-base-100 shadow-sm">
     {
       hobbies.map(({ icon: Icon, title, description }) => (
-        <div class="card bg-base-100 shadow-md transition hover:shadow-xl dark:bg-gray-800 dark:shadow-none dark:hover:shadow-none">
-          <div class="card-body">
-            <Icon class="text-primary h-6 w-6" aria-hidden="true" />
-            <h3 class="card-title mt-2">{title}</h3>
-            <p class="text-sm">{description}</p>
+        <li class="list-row items-start gap-4 border-b border-base-200 py-4 last:border-b-0 [grid-template-columns:auto_minmax(0,1fr)]">
+          <div class="rounded-box bg-primary/10 text-primary flex size-11 shrink-0 items-center justify-center">
+            <Icon class="h-5 w-5" aria-hidden="true" />
           </div>
-        </div>
+          <div class="min-w-0">
+            <h3 class="font-semibold">{title}</h3>
+            <p class="mt-1 text-sm leading-relaxed opacity-75">
+              {description}
+            </p>
+          </div>
+        </li>
       ))
     }
-  </div>
+  </ul>
 </section>
