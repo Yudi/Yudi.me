@@ -4,8 +4,6 @@ import tailwindcss from "@tailwindcss/vite";
 import svelte from "@astrojs/svelte";
 import sitemap from "@astrojs/sitemap";
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
   site: "https://yudi.com.br",
@@ -31,9 +29,6 @@ export default defineConfig({
       "pt-br": "en",
     },
   },
-
-  output: "server",
-  adapter: cloudflare(),
 
   vite: {
     plugins: [tailwindcss()],
