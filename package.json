@@ -9,10 +9,11 @@
     "preview": "astro preview",
     "astro": "astro",
     "generate-types": "wrangler types",
-    "deploy": "bun run build && wrangler pages deploy dist --project-name yudi"
+    "deploy": "bun run build && wrangler deploy"
   },
   "dependencies": {
     "@astrojs/check": "0.9.9",
+    "@astrojs/cloudflare": "^13.7.0",
     "@astrojs/mdx": "6.0.3",
     "@astrojs/sitemap": "3.7.3",
     "@astrojs/svelte": "8.1.2",
